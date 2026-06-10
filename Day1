@@ -13,6 +13,7 @@
 
 
 3. Open the terminal
+    oc get clusterversion
     oc get nodes
     oc get co
 
