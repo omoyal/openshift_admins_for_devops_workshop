@@ -1,0 +1,12 @@
+*know Your Openshift Resources*
+oc api-resources
+
+oc explain REOSURCE
+
+
+oc get project X
+oc project X
+oc get all -A
+oc get all (only this NS)
+
+oc describe POD
