@@ -1,0 +1,1 @@
+# openshift_admins_for_devops_workshop
