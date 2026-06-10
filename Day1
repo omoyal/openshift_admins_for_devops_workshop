@@ -1,0 +1,62 @@
+1. Log in to the Red Hat OpenShift Container Platform web console
+    $oc login -u developer -p developer https://api.ocp4.example.com:6443
+    $oc whoami --show-console
+
+
+2. View the cluster version on the Overview page for the cluster.
+    From the Home → Overview page, scroll down to view the cluster details.
+    Locate the OpenShift version in the Details section.
+    - see the nodes cluster
+    - go to the Master Terminal and check the kubelet service
+    - see The cluster Utilization
+    - see the main projects (api-server, etcd, controller ....)
+
+
+3. Open the terminal
+    oc get nodes
+    oc get co
+
+
+===
+
+*configure Httpaswd*
+1. conigure 2 Users, Developer and Admin
+    check the Oauth cr
+    check the login with 2 users
+
+*RBAC*
+2. Configure RBAC to users
+    for admin - Cluster admin
+    for developer onlu NS admin
+
+
+===
+
+
+*NetworkPolicy*
+https://role.rhu.redhat.com/rol/app/courses/do280-4.18/pages/ch04s04
+
+
+
+*Resource Qouta*
+https://role.rhu.redhat.com/rol/app/courses/do280-4.18/pages/ch06s02
+
+   
+*Limit range*
+https://role.rhu.redhat.com/rol/app/courses/do280-4.18/pages/ch06s04
+
+
+*Operators*
+https://role.rhu.redhat.com/rol/app/courses/do280-4.18/pages/ch07s04
+
+
+*SCC*
+https://role.rhu.redhat.com/rol/app/courses/do280-4.18/pages/ch08s02
+
+
+
+
+
+
+
+
