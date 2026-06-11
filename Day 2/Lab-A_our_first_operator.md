@@ -16,8 +16,8 @@ In this lab, we will simulate a very common real-world scenario: bringing an ext
 > [!CAUTION]
 > **SERVER CHECK:** Perform the following steps ONLY on the **Jump Server** (🟣 Purple/Blue prompt).
 
-### 1. Create the ImageSetConfiguration
 <br>
+### 1. Create the ImageSetConfiguration
 We will create a dedicated directory under `/mnt/low-side-data` and write our configuration file there.
 
 ```bash
