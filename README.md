@@ -2,6 +2,8 @@
 
 Welcome to the OpenShift Administration workshop! This repository contains all the hands-on lab exercises you will need throughout the course.
 
+<br>
+
 ## 🔗 Quick Links & Access
 
 Here are the essential links to access your lab environment:
@@ -11,6 +13,8 @@ Here are the essential links to access your lab environment:
 | **Lab Environment (Jump/Highside)** | `[Insert Lab URL Here]` |
 | **OpenShift Web Console** | `[Insert Console URL Here]` |
 | **API Endpoint** | `[Insert API URL Here]` |
+
+<br>
 
 ## 🔐 Credentials
 
@@ -23,6 +27,8 @@ Use the following credentials to log in to your environment and the OpenShift cl
 
 > [!NOTE]
 > Please replace the placeholders with the actual URLs and credentials provided by the instructor at the beginning of the workshop.
+
+<br>
 
 ## 📂 Repository Structure
 
