@@ -51,7 +51,7 @@ cd /gitops-operator
 vim imageset-config.yaml
 ```
 
-Paste the following content into `imageset-config.yaml`:
+Create and Paste the following content into `imageset-config.yaml`:
 ```yaml
 ---
 kind: ImageSetConfiguration
