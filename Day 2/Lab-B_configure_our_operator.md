@@ -36,6 +36,98 @@ We will explore the underlying components we discussed in class, complete the ac
 
 
 
+## Part 1: Operator Investigation
+
+> [!WARNING]
+> **SERVER CHECK:** We are now working in the Air-Gapped environment. Switch to the **Highside Server** (🟠 Orange prompt).
+
+<br>
+
+### 1. Verify Cluster Connection
+First, verify that you are successfully logged in to the cluster from the CLI.
+
+### 2. Investigate OLM Components via CLI
+Let's use the CLI to investigate the core Operator Lifecycle Manager (OLM) components: **Subscription**, **CSV**, **OperatorGroup**, and **InstallPlan**.
+
+**2.a. Subscription**
+Run the following command to locate our subscription:
+```bash
+$ oc get subscription -A
+```
+> [!TIP]
+> The flag `-A` means "All Namespaces" – it will search everywhere across the cluster for you.
+
+<img width="1317" height="45" alt="image" src="https://github.com/user-attachments/assets/a46b8cf3-4db1-4176-989b-3e2879bd4401" />
+
+You should see our operator's Subscription in the output table showing its Namespace (NS), Source, Channel, etc.
+
+Now, let's inspect what this subscription contains in detail:
+```bash
+$ oc get subscription openshift-gitops-operator -n openshift-gitops-operator -o yaml
+```
+*(Explanation: **oc** calls the API, **get** specifies the action, **openshift-gitops-operator** is the object name, **-n** targets the namespace it resides in, and **-o yaml** outputs the resource in clean YAML format).*
+
+Take a look into the generated YAML structure.
+
+**2.b. CSV (Cluster Service Version)**
+Run a similar command to view the ClusterServiceVersion (CSV) objects:
+```bash
+$ oc get csv -A
+```
+
+**2.c. OperatorGroup**
+Run a similar command to see the OperatorGroup objects:
+```bash
+$ oc get og -A
+```
+
+**2.d. InstallPlan**
+At this moment, you won't see an active InstallPlan for this deployment because we haven't triggered the actual installation yet.
+
+---
+
+> [!TIP]
+> **Prefer the Web Console?** You can also investigate all of these objects through the UI:
+> 1. Log in to the OpenShift Web Console.
+> 2. In the left-side menu, navigate to **Home** -> **Search**.
+> 3. Set **Project: All Projects**.
+> 4. Under **Resources**, select your object type (e.g., `Subscription`).
+> 5. Click on the resource and explore the **Details** and **YAML** tabs.
+
+<br><br>
+
+---
+
+## Part 2: Operator Installation
+
+Now that you've seen everything related to the operator and have absolutely mastered it, let's go ahead and install the operator! 🚀
+
+### 3. Trigger Installation via Web Console
+1. Open the OpenShift Web Console (log in if prompted).
+2. In the left-side menu, navigate to **Operators** -> **OperatorHub**.
+3. Search for and select our Operator, then click **Install**.
+4. On the installation page, review the configuration details. You don't need to change anything.
+   *(You will see options we discussed in class, such as the Update Strategy, Target Namespace, etc.)*
+5. Click **Create / Install**.
+
+### 4. Monitor the Background Process
+Behind the scenes, the magic is happening. Let's trace it!
+
+**4.a. Monitor the Installation Pod & Job**
+Duplicate your current browser tab. In the new tab, navigate to **Workloads** -> **Pods** and select the project **`openshift-marketplace`**. 
+You will see a new pod running that manages the installation process (feel free to check its logs!). This pod was created by a Job (you can verify this by checking **Workloads** -> **Jobs**).
+
+**4.b. Inspect the InstallPlan**
+While the installation is running, navigate to **Home** -> **Search**, select **All Projects**, and choose **InstallPlan** as the resource. You will see our active InstallPlan. Click on it to investigate its **YAML**, **Details**, and **Components** tabs.
+
+**4.c. Confirm Successful Installation**
+Wait for the operator to install successfully (this may take a couple of minutes). Once finished, you will be able to view it under **Operators** -> **Installed Operators**.
+
+<br><br>
+
+---
+
+# Congratulations! 🎉
 
 
 
@@ -62,7 +154,22 @@ We will explore the underlying components we discussed in class, complete the ac
 
 
 
-
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
 
 
 ## Part 1: Operator Investing
@@ -70,14 +177,78 @@ We will explore the underlying components we discussed in class, complete the ac
 > **SERVER CHECK:** We are now working into the Air-Gapped environment. Switch to the **Highside Server** (🟠 Orange prompt).
 
 <br>
-<img width="1317" height="45" alt="image" src="https://github.com/user-attachments/assets/a46b8cf3-4db1-4176-989b-3e2879bd4401" />
+
+
 
 
 1. check you are login to the cluster from CLI
 2. in the CLI lets investing about the component: Subscription, Csv, OperatorGroup and InstallPlan
+   2.a. **subscription**
    $ oc get subscription -A
    (Tip The fleg -A mean search for me in all around the cluster)
-   $ 
+screenshot:
+<img width="1317" height="45" alt="image" src="https://github.com/user-attachments/assets/a46b8cf3-4db1-4176-989b-3e2879bd4401" />
+   you need to see our operator Subscription under the table (NS, Source,Channel etc..)
+
+   lets see what this sub contain:
+   $ oc get subscription openshift-gitops-operator -n openshift-gitops-operator -o yaml
+   (explain: **oc** (call the API) **get** (the action' like create delete...) **<the name of object>** **-n** (the namespace is contain) **-o yaml** (give me that in yaml for clearly))
+
+   look into the Yaml
+   
+   2.b. **CSV (Cluster Service Version)**
+   replace same command but to see the csv object
+   $ oc get csv -A
+   ...
+
+
+   2.c. **OperatorGroup (Cluster Service Version)**
+   replace same command but to see the OperatorGroup object
+   $ oc get og -A
+   ...
+
+   2.d **Install Plan**
+   in this moment we dont see anything because we not install the operator
+
+
+   TIP: If you want you can go to the Web-console and investing the all object there:
+   Login to Disco-web-Openshift-Clister
+   in the Menu(left-side) Under the HOME -> Search -> Project: All Projects -> Resources -> choose one: like subscription for example -> investing the "Detailes" and "Yaml" Tabs
+
+
+
+
+## Part 2: Operator Installation
+Now that you've seen everything related to the operator and have absolutly mastered it, let's go ahead and install the operator! 🚀
+3. go to the Web-openshift-console (Login if need)
+in the Menu(left-side), choose 'Operators' -> 'OperatorHub' -> choose our Operator -> choose Install
+in this page brief the dtailes, Dont need to change anything
+( You wiil see the Object the option that ask them in the class, like: Updated starategy, Ns, etc...)
+-> choose create
+
+4. in this moment the magic happen the background, lets see.
+4.a. Diplicate the Tab -> in the new tab go to Menu -> Workload -> Pods -> choose Project 'Openshift-marketPlace' -> you can see a new pod runing - this pod manage the installation (Check it logs) -> the Pod create from a Job (if you go to Workloads -> Jobs you can see the job).
+
+4.b.
+Now after the Operator Installation started Go to Menu -> Search -> All Projects -> Resource: InstallPlan  - you cans see our installPlan, investing it (Click it and see the Yaml, Deatlies and Components)
+
+4.c.
+Wait the Operator Installed susccssefuly, this is take while minutes.
+when the operator finish the installation you can see it under -> operators -> installed Operators
+
+
+COngretulations!!!!!
+
+
+
+
+
+
+
+
+
+
+
 
 
 ### 1. Create the ImageSetConfiguration
