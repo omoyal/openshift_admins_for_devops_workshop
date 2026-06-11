@@ -9,6 +9,7 @@ In this lab, we will simulate a very common real-world scenario: bringing an ext
 > Best of luck! 💪
 
 ---
+<br><br>
 
 ## Part 1: Downloading the Operator (On the Internet Side)
 
@@ -57,7 +58,7 @@ rsync -avP /mnt/low-side-data/gitops-operator highside:/mnt/high-side-data/
 *Wait until the file copy is completely done.*
 
 ---
-
+<br><br><br>
 ## Part 2: Installing the Operator (In the Air-Gapped Env)
 
 > [!WARNING]
@@ -86,7 +87,7 @@ ls -lah working-dir/cluster-resources/
 *(Take a moment to read and inspect the generated files)*
 
 ---
-
+<br><br><br>
 ## Part 3: Cluster Configuration & Deployment
 
 ### 7. Disable Default CatalogSources
@@ -113,7 +114,7 @@ oc apply -f /mnt/high-side-data/gitops/working-dir/cluster-resources/
 ```
 
 ---
-
+<br><br><br>
 ## Part 4: Verification
 
 ### 9. Monitor the Deployment Status
