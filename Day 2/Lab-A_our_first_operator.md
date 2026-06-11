@@ -1,5 +1,5 @@
 # Day 2 Lab 1 - Our First Operator
-
+<br>
 In this lab, we will simulate a very common real-world scenario: bringing an external operator into our environment and installing it inside the cluster. We will do this together, step-by-step.
 
 > [!IMPORTANT]
@@ -12,7 +12,7 @@ In this lab, we will simulate a very common real-world scenario: bringing an ext
 <br><br>
 
 ## Part 1: Downloading the Operator (On the Internet Side)
-
+<br>
 > [!CAUTION]
 > **SERVER CHECK:** Perform the following steps ONLY on the **Jump Server** (🟣 Purple/Blue prompt).
 
@@ -60,7 +60,7 @@ rsync -avP /mnt/low-side-data/gitops-operator highside:/mnt/high-side-data/
 ---
 <br><br><br>
 ## Part 2: Installing the Operator (In the Air-Gapped Env)
-
+<br>
 > [!WARNING]
 > **SERVER CHECK:** We are now moving into the Air-Gapped environment. Switch to the **Highside Server** (🟠 Orange prompt).
 
@@ -89,7 +89,7 @@ ls -lah working-dir/cluster-resources/
 ---
 <br><br><br>
 ## Part 3: Cluster Configuration & Deployment
-
+<br>
 ### 7. Disable Default CatalogSources
 Before we apply our new files to OpenShift, we must disable the default online catalogs.
 
@@ -116,7 +116,7 @@ oc apply -f /mnt/high-side-data/gitops/working-dir/cluster-resources/
 ---
 <br><br><br>
 ## Part 4: Verification
-
+<br>
 ### 9. Monitor the Deployment Status
 Run the following commands in your terminal to verify everything is climbing up correctly:
 ```bash
