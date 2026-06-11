@@ -47,7 +47,7 @@ We will create a dedicated directory under `/mnt/low-side-data` and write our co
 ```bash
 cd /mnt/low-side-data/
 mkdir gitops-operator
-cd /gitops-operator
+cd gitops-operator
 ```
 
 Create and Paste the following content into `imageset-config.yaml`:
