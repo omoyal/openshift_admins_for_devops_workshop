@@ -48,10 +48,13 @@ We will create a dedicated directory under `/mnt/low-side-data` and write our co
 cd /mnt/low-side-data/
 mkdir gitops-operator
 cd /gitops-operator
-vim imageset-config.yaml
 ```
 
 Create and Paste the following content into `imageset-config.yaml`:
+```bash
+vim imageset-config.yaml
+```
+
 ```yaml
 ---
 kind: ImageSetConfiguration
