@@ -81,6 +81,7 @@ Take a look into the generated YAML structure.
 Run a similar command to view the ClusterServiceVersion (CSV) objects:
 ```bash
 $ oc get csv -A
+... (and oher commands)
 ```
 
 <br>
@@ -89,6 +90,7 @@ $ oc get csv -A
 Run a similar command to see the OperatorGroup objects:
 ```bash
 $ oc get og -A
+... (and oher commands)
 ```
 
 <br>
