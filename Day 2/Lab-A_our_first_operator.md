@@ -173,10 +173,6 @@ Run the following commands in your terminal to verify everything is climbing up 
 oc get mcp
 oc get pods -n openshift-marketplace
 ```
-
-<br>
-
-
 ### 📋 What just happened behind the scenes?
 * Because the **IDMS** (`ImageDigestMirrorSet`) needs to update each node in the cluster, the **MCP** (*MachineConfigPool*) will begin updating.
 * Inside the `openshift-marketplace` namespace, you will see a new pod appearing – this pod runs our newly mirrored CatalogSource index.
