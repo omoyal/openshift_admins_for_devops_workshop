@@ -143,8 +143,9 @@ Before we apply our new files to OpenShift, we must disable the default online c
 
 **7.a. Log in to the cluster from the CLI:**
 ```bash
-oc login -u kubeadmin [https://api.disco.lab:6443](https://api.disco.lab:6443)
+oc login -u kubeadmin https://api.disco.lab:6443
 ```
+
 *(Note: You can find your kubeadmin password on the highside server at: `/mnt/high-side-data/auth/kubeadmin-password`)*
 
 <br>
