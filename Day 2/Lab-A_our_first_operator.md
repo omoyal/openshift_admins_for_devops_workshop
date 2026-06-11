@@ -8,7 +8,7 @@ Please make sure to read and understand the commands before running them, so you
 
 Of-cource, If you have any questions, don't hesitate to ask the instructor.
 
-Best of luck! 💪
+Best of luck! 💪גדשגדשגדשגדשג
 
 
 <br> <br> <br>
