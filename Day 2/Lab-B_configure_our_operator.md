@@ -37,11 +37,48 @@ We will explore the underlying components we discussed in class, complete the ac
 
 
 
-## Part 1: Downloading the Operator (On the Internet Side)
-> [!CAUTION]
-> **SERVER CHECK:** Perform the following steps ONLY on the **Jump Server** (🟣 Purple/Blue prompt).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Part 1: Operator Investing
+> [!WARNING]
+> **SERVER CHECK:** We are now working into the Air-Gapped environment. Switch to the **Highside Server** (🟠 Orange prompt).
 
 <br>
+<img width="1317" height="45" alt="image" src="https://github.com/user-attachments/assets/a46b8cf3-4db1-4176-989b-3e2879bd4401" />
+
+
+1. check you are login to the cluster from CLI
+2. in the CLI lets investing about the component: Subscription, Csv, OperatorGroup and InstallPlan
+   $ oc get subscription -A
+   (Tip The fleg -A mean search for me in all around the cluster)
+   $ 
+
 
 ### 1. Create the ImageSetConfiguration
 We will create a dedicated directory under `/mnt/low-side-data` and write our configuration file there.
