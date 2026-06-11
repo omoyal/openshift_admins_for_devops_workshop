@@ -110,7 +110,7 @@ cd /mnt/high-side-data/gitops-operator
 ### 5. Push the Operator to the Local Registry
 Push the mirrored assets into our local Quay registry (make sure you are logged in if needed):
 ```bash
-oc mirror -c <image_set_configuration> --from file:///mnt/high-side-data/gitops-operator docker://$(hostname):8443 --v2
+oc mirror -c imageset-config.yaml --from file:///mnt/high-side-data/gitops-operator docker://$(hostname):8443 --v2
 ```
 *Wait for oc-mirror to complete successfully.*
 
