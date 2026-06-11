@@ -12,7 +12,28 @@ In this lab, we will simulate a very common real-world scenario: bringing an ext
 
 ---
 
-<br><br>
+
+<br><br><br>
+
+> [!CAUTION]
+> ### ⚠️ CRITICAL: Check Your Terminal Before You Enter!
+> 
+> To save yourself from a headache and avoid running commands in the wrong place, **always double-check your terminal prompt color and hostname** before hitting Enter.
+> 
+> | Terminal Color | Hostname | Network | What is it for? |
+> | :--- | :--- | :--- | :--- |
+> | 🟣 **Purple / Blue** | `lab-user@jump` | **"Lowside"** | **Connected to the Internet.** Use this host to download tools, pull container images, and prepare installation assets. |
+> | 🟠 **Orange** | `lab-user@highside` | **"Highside"** | **Completely Air-Gapped (Disconnected).** This is where the actual lab happens. You will install the Quay mirror-registry and spin up your OpenShift cluster (`openshift.disco.lab`) here. |
+> 
+> #### 💡 Quick Tips:
+> * **To switch** from the jump box to the disconnected environment, simply run: `ssh highside`
+> * **Follow the colors!** The command boxes in your lab guide match these exact colors to show you exactly where to run them.
+
+---
+<br><br><br>
+
+
+
 
 ## Part 1: Downloading the Operator (On the Internet Side)
 > [!CAUTION]
