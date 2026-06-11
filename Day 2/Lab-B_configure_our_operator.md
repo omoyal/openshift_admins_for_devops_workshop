@@ -142,6 +142,28 @@ Wait for the operator to install successfully (this may take a couple of minutes
 
 <br><br>
 
----
+### 5. Deploy an Operator Instance
+Now that our operator is successfully installed, let's deploy an actual instance on the cluster (a real-world application!).
 
+> [!NOTE]
+> **What is a CR?** Think of a CR (Custom Resource) as an extension that teaches Kubernetes a new capability. When you create a CR, you are simply telling the Operator—the domain expert—to spin up a new instance of your application.
+
+**5.a. Deploy the CR**
+1. In the Web Console, navigate to the left-side menu and select **Operators** -> **Installed Operators**.
+2. Click on our newly installed operator.
+3. Under the available components, locate **ArgoCD** (this is the main resource) and click **Create Instance**.
+4. Review the configuration details on the page (**DO NOT CHANGE ANYTHING**). Take note of the namespace where it is being deployed.
+5. Click **Create**.
+
+**5.b. Monitor the Deployment**
+Now, the Operator automatically goes to work behind the scenes to deploy all the components and pods required for ArgoCD.
+
+1. Navigate to **Workloads** -> **Pods**.
+2. Select the **`openshift-gitops`** namespace from the project dropdown. You will see the new pods deploying in real-time.
+3. Once the pods are healthy and running, navigate to **Networking** -> **Routes** (still under the **`openshift-gitops`** namespace).
+4. Click on the exposed URL.
+
+Welcome to your live ArgoCD instance! From this moment on, the Operator will continuously monitor, manage, and care for this application. That is the true power of an Operator! 🚀
+
+---
 # Congratulations! 🎉
