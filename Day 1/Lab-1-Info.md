@@ -1,13 +1,13 @@
 # 🚀 Day 1: The Foundation - Architecture & Installation
-
 Welcome to Day 1! 🎉 
 Today is all about understanding what lives "under the hood" and how a cluster is born. Let's build a strong foundation!
 
-<br>
 
 ## 🎯 Today's Goals
 *   Understand OpenShift Architecture.
 *   Perform an installation in a disconnected environment.
+
+
 
 <br><br>
 > [!NOTE]
@@ -18,6 +18,8 @@ Today is all about understanding what lives "under the hood" and how a cluster i
 > 👉 **Please log in to your provided lab link and follow the guide instructions.**
 
 <br><br><br><br>
+
+
 
 
 > [!CAUTION]
