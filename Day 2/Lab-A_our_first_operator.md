@@ -15,8 +15,6 @@ In this lab, we will simulate a very common real-world scenario: bringing an ext
 <br><br>
 
 ## Part 1: Downloading the Operator (On the Internet Side)
-<br>
-
 > [!CAUTION]
 > **SERVER CHECK:** Perform the following steps ONLY on the **Jump Server** (🟣 Purple/Blue prompt).
 
@@ -70,9 +68,6 @@ rsync -avP /mnt/low-side-data/gitops-operator highside:/mnt/high-side-data/
 ---
 <br><br><br>
 ## Part 2: Installing the Operator (In the Air-Gapped Env)
-
-<br>
-
 > [!WARNING]
 > **SERVER CHECK:** We are now moving into the Air-Gapped environment. Switch to the **Highside Server** (🟠 Orange prompt).
 
@@ -108,6 +103,8 @@ ls -lah working-dir/cluster-resources/
 
 ---
 <br><br><br>
+
+
 ## Part 3: Cluster Configuration & Deployment
 <br>
 ### 7. Disable Default CatalogSources
@@ -145,6 +142,7 @@ oc apply -f /mnt/high-side-data/gitops/working-dir/cluster-resources/
 ---
 <br><br><br>
 ## Part 4: Verification
+
 <br>
 
 ### 9. Monitor the Deployment Status
