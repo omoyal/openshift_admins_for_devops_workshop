@@ -1,5 +1,38 @@
-# openshift_admins_for_devops_workshop
+# 🚀 OpenShift Administration for DevOps Workshop
 
+Welcome to the OpenShift Administration workshop! This repository contains all the hands-on lab exercises you will need throughout the course.
 
+## 🔗 Quick Links & Access
 
-Table with all url's
+Here are the essential links to access your lab environment:
+
+| Resource | URL |
+| :--- | :--- |
+| **Lab Environment (Jump/Highside)** | `[Insert Lab URL Here]` |
+| **OpenShift Web Console** | `[Insert Console URL Here]` |
+| **API Endpoint** | `[Insert API URL Here]` |
+
+## 🔐 Credentials
+
+Use the following credentials to log in to your environment and the OpenShift cluster:
+
+*   **Lab User:** `lab-user`
+*   **Lab Password:** `[Insert Lab Password Here]`
+*   **OpenShift Admin User:** `[Insert Admin Username Here]`
+*   **OpenShift Admin Password:** `[Insert Admin Password Here]`
+
+> [!NOTE]
+> Please replace the placeholders with the actual URLs and credentials provided by the instructor at the beginning of the workshop.
+
+## 📂 Repository Structure
+
+This repository is organized day-by-day to match the workshop's syllabus. Inside each folder, you will find a `README.md` file with the specific exercises and goals for that day.
+
+*   [**Day 1: The Foundation - Architecture & Installation**](./Day%201/README.md)
+*   [**Day 2: Disconnected Operations & Operator Lifecycle**](./Day%202/README.md)
+*   [**Day 3: Security, Identity & Storage**](./Day%203/README.md)
+*   [**Day 4: Day 2 Management & The Upgrade Path**](./Day%204/README.md)
+*   [**Day 5: Monitoring, Logging & Troubleshooting**](./Day%205/README.md)
+
+---
+*Ready to start? Head over to [Day 1](./Day%201/README.md) and let's get building!*
