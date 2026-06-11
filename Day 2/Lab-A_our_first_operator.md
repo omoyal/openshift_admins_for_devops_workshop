@@ -128,6 +128,7 @@ ls -lah working-dir/cluster-resources/
 
 ## Part 3: Cluster Configuration & Deployment
 <br>
+
 ### 7. Disable Default CatalogSources
 Before we apply our new files to OpenShift, we must disable the default online catalogs.
 
