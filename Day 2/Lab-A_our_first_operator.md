@@ -17,6 +17,7 @@ In this lab, we will simulate a very common real-world scenario: bringing an ext
 > **SERVER CHECK:** Perform the following steps ONLY on the **Jump Server** (🟣 Purple/Blue prompt).
 
 ### 1. Create the ImageSetConfiguration
+<br>
 We will create a dedicated directory under `/mnt/low-side-data` and write our configuration file there.
 
 ```bash
@@ -41,6 +42,7 @@ mirror:
 ```
 
 ### 2. Download via oc-mirror
+<br>
 Run the mirror command to pull the operator assets from the internet:
 ```bash
 oc mirror -c imageset-config.yaml file:///mnt/low-side-data/gitops-operator --v2
@@ -51,6 +53,7 @@ oc mirror -c imageset-config.yaml file:///mnt/low-side-data/gitops-operator --v2
 > `" 👋 Goodbye, thank you for using oc-mirror "`
 
 ### 3. Transfer the Assets to the Air-Gapped Environment
+<br>
 Now, move the generated TAR output over to our disconnected environment using `rsync`:
 ```bash
 rsync -avP /mnt/low-side-data/gitops-operator highside:/mnt/high-side-data/
@@ -65,6 +68,7 @@ rsync -avP /mnt/low-side-data/gitops-operator highside:/mnt/high-side-data/
 > **SERVER CHECK:** We are now moving into the Air-Gapped environment. Switch to the **Highside Server** (🟠 Orange prompt).
 
 ### 4. Connect and Verify
+<br>
 SSH into the Highside server and navigate to our copied data directory:
 ```bash
 ssh highside
@@ -72,6 +76,7 @@ cd /mnt/high-side-data/gitops-operator
 ```
 
 ### 5. Push the Operator to the Local Registry
+<br>
 Push the mirrored assets into our local Quay registry (make sure you are logged in if needed):
 ```bash
 oc mirror -c <image_set_configuration> --from file:///mnt/high-side-data/gitops-operator docker://$(hostname):8443 --v2
@@ -79,6 +84,7 @@ oc mirror -c <image_set_configuration> --from file:///mnt/high-side-data/gitops-
 *Wait for oc-mirror to complete successfully.*
 
 ### 6. Investigate the Generated Manifests
+<br>
 Let's see what files were created as a result of the mirroring action:
 ```bash
 ls -lah
@@ -97,17 +103,20 @@ Before we apply our new files to OpenShift, we must disable the default online c
 > **The Logic:** Since OpenShift doesn't know whether it has internet access or not, it will constantly throw errors trying to pull the unavailable indexes from the internet. Therefore, we disable the default ones to keep our cluster healthy and clean.
 
 **7.a. Log in to the cluster from the CLI:**
+<br>
 ```bash
 oc login -u kubeadmin [https://api.disco.lab:6443](https://api.disco.lab:6443)
 ```
 *(Note: You can find your kubeadmin password on the highside server at: `/mnt/high-side-data/auth/kubeadmin-password`)*
 
 **7.b. Apply the patch to disable default sources:**
+<br>
 ```bash
 oc patch OperatorHub cluster --type merge -p '{"spec": {"disableAllDefaultSources": true}}'
 ```
 
 ### 8. Deploy the Mirrored Kubernetes Objects
+<br>
 Now, apply the generated manifests to register our local operator catalog in the cluster:
 ```bash
 oc apply -f /mnt/high-side-data/gitops/working-dir/cluster-resources/
@@ -117,7 +126,9 @@ oc apply -f /mnt/high-side-data/gitops/working-dir/cluster-resources/
 <br><br><br>
 ## Part 4: Verification
 <br>
+
 ### 9. Monitor the Deployment Status
+<br>
 Run the following commands in your terminal to verify everything is climbing up correctly:
 ```bash
 oc get mcp
