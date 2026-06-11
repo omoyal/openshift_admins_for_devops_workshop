@@ -46,6 +46,10 @@ We will explore the underlying components we discussed in class, complete the ac
 ### 1. Verify Cluster Connection
 First, verify that you are successfully logged in to the cluster from the CLI.
 
+
+<br><br>
+
+
 ### 2. Investigate OLM Components via CLI
 Let's use the CLI to investigate the core Operator Lifecycle Manager (OLM) components: **Subscription**, **CSV**, **OperatorGroup**, and **InstallPlan**.
 
