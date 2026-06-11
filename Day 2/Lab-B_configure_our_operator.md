@@ -53,6 +53,8 @@ First, verify that you are successfully logged in to the cluster from the CLI.
 ### 2. Investigate OLM Components via CLI
 Let's use the CLI to investigate the core Operator Lifecycle Manager (OLM) components: **Subscription**, **CSV**, **OperatorGroup**, and **InstallPlan**.
 
+<br>
+
 **2.a. Subscription**
 Run the following command to locate our subscription:
 ```bash
@@ -73,17 +75,23 @@ $ oc get subscription openshift-gitops-operator -n openshift-gitops-operator -o 
 
 Take a look into the generated YAML structure.
 
+<br>
+
 **2.b. CSV (Cluster Service Version)**
 Run a similar command to view the ClusterServiceVersion (CSV) objects:
 ```bash
 $ oc get csv -A
 ```
 
+<br>
+
 **2.c. OperatorGroup**
 Run a similar command to see the OperatorGroup objects:
 ```bash
 $ oc get og -A
 ```
+
+<br>
 
 **2.d. InstallPlan**
 At this moment, you won't see an active InstallPlan for this deployment because we haven't triggered the actual installation yet.
