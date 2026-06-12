@@ -35,7 +35,7 @@ We are going to wrap up the day with a fast, high-impact exercise: closing a sec
 
 ## Part 1: The 3-Minute Network Isolation Challenge
 
-### 1. Launch the Deployments (As Admin 🛠️)
+### 1. (On Highside Server 🟠) Launch the Deployments (As Admin 🛠️) 
 Make sure you are logged in as admin on the Highside and spin up both environments instantly using the official image path (the cluster will automatically mirror this to your local registry):
 
 ```bash
