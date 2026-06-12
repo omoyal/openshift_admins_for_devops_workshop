@@ -120,6 +120,8 @@ EOF
 
 ---
 
+<br><br><br>
+
 ## Part 2: SRE Troubleshooting 🕵️
 
 ### 5. Check the Pod Status
