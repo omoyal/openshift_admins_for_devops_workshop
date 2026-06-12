@@ -55,9 +55,6 @@ EOF
 <br>
 
 Run `oc-mirror` to download the image to your local disk, archive it, and transfer it over the network to the Highside server:
-
-<br>
-
 ```bash
 # Download the image using v2 engine
 oc-mirror --config=imageset-config.yaml file://ubi-image --v2
