@@ -181,6 +181,10 @@ oc adm policy add-role-to-user admin disco-dev -n dev-app-project
 
 ---
 
+
+<br><br>
+
+
 ## Part 4: Verification Challenge 🧪
 
 Let's verify that our authentication and authorization boundaries work perfectly.
