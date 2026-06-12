@@ -8,8 +8,28 @@ However, OpenShift enforces strict operating system-level security constraints r
 > **Our Mission:** First, mirror the required base image into our air-gapped environment. Then, experience a real-world deployment failure, diagnose it using SRE troubleshooting commands, and fix it using a dedicated `ServiceAccount` and **SCC** policies.
 
 ---
+<br><br><br>
 
-<br><br>
+---
+
+> [!CAUTION]
+> ### ⚠️ CRITICAL: Check Your Terminal Before You Enter!
+> 
+> To save yourself from a headache and avoid running commands in the wrong place, **always double-check your terminal prompt color and hostname** before hitting Enter.
+> 
+> | Terminal Color | Hostname | Network | What is it for? |
+> | :--- | :--- | :--- | :--- |
+> | 🟣 **Purple / Blue** | `lab-user@jump` | **"Lowside"** | **Connected to the Internet.** Use this host to download tools, pull container images, and prepare installation assets. |
+> | 🟠 **Orange** | `lab-user@highside` | **"Highside"** | **Completely Air-Gapped (Disconnected).** This is where the actual lab happens. You will install the Quay mirror-registry and spin up your OpenShift cluster (`openshift.disco.lab`) here. |
+> 
+> #### 💡 Quick Tips:
+> * **To switch** from the jump box to the disconnected environment, simply run: `ssh highside`
+> * **Follow the colors!** The command boxes in your lab guide match these exact colors to show you exactly where to run them.
+
+---
+
+<br><br><br>
+
 
 ## Part 0: SRE Pre-requisite - Mirroring the Image (oc-mirror v2)
 
