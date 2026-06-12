@@ -53,34 +53,32 @@ oc new-project prod-app-project
 ```
 
 ---
-<br><br>
+
 ## Part 2: Creating the Local Identity Provider (IdP)
 
-We will deploy our user database directly into OpenShift using a Kubernetes Secret. Both users (`disco-admin` and `disco-dev`) are pre-configured with the same password: **`Disco123!`**
+We will deploy our user database directly into OpenShift using a Kubernetes Secret. Both users (`disco-admin` and `disco-dev`) are configured with the same password: **`Disco123!`**
 
-### 1. Create the HTPasswd Secret
-Run the following command to create the secret configuration file directly inside the cluster:
+### 1. Create the HTPasswd File
+Run the following commands to write the pre-generated secure password hashes into a local temporary file:
 
 ```bash
-cat <<EOF | oc apply -f -
-apiVersion: v1
-kind: Secret
-metadata:
-  name: htpasswd-secret
-  namespace: openshift-config
-type: Opaque
-stringData:
-  htpasswd: |
-    disco-admin:{SHA}ZoYO96hoR9/CWYvmmFARf/sqdSo=
-    disco-dev:{SHA}ZoYO96hoR9/CWYvmmFARf/sqdSo=
-EOF
+echo "disco-admin:{SHA}Uo3KBq9vhu4j2V0klNxVs38fAR4=" > /tmp/htpasswd
+echo "disco-dev:{SHA}Uo3KBq9vhu4j2V0klNxVs38fAR4=" >> /tmp/htpasswd
 ```
 
-### 2. Update the Cluster OAuth Configuration
-Now, let's patch the global OAuth object to tell OpenShift to use this secret as our corporate login provider:
+### 2. Inject the File as an OpenShift Secret
+Now, load the file into OpenShift's core configuration namespace:
 
 ```bash
-cat <<EOF | oc apply -f -
+oc delete secret htpasswd-secret -n openshift-config --ignore-not-found
+oc create secret generic htpasswd-secret --from-file=htpasswd=/tmp/htpasswd -n openshift-config
+```
+
+### 3. Update the Cluster OAuth Configuration
+Apply the following configuration to patch the global OAuth resource and register our new provider:
+
+```bash
+cat << 'EOF' | oc apply -f -
 apiVersion: config.openshift.io/v1
 kind: OAuth
 metadata:
@@ -96,29 +94,33 @@ spec:
 EOF
 ```
 
-> [!TIP]
-> Wait a minute or two for the Authentication Cluster Operator (`oc get co authentication`) to refresh and load the new provider.
-> 
+### 4. Force Authentication Pods Refresh (CRITICAL)
+Whenever a secret's content is modified, we must force the authentication deployment to restart so it reads the new user database:
 
+```bash
+# Trigger a rolling restart for the OAuth pods
+oc rollout restart deployment/oauth-openshift -n openshift-authentication
 
-
-
-
+# Monitor the rollout status until it completes successfully
+oc rollout status deployment/oauth-openshift -n openshift-authentication
+```
+*(Wait until you see: `deployment "oauth-openshift" successfully rolled out`)*
 
 ---
 
 ## Part 3: Enforcing RBAC (Permissions)
-Now that our users can log in, let's make sure they can only touch what they are authorized to.
 
-### 4. Assign Cluster Admin Rights
-We want `disco-admin` to have full control over the entire cluster:
+Now that our identity provider is live, let's configure cluster and namespace-level permissions for our new users.
+
+### 5. Assign Cluster Admin Rights
+Give `disco-admin` full administrative access to the entire cluster:
 
 ```bash
 oc adm policy add-cluster-role-to-user cluster-admin disco-admin
 ```
 
-### 5. Assign Namespace-Level Developer Rights
-We want `disco-dev` to be able to work and deploy applications **only** inside the development project:
+### 6. Assign Namespace-Level Developer Rights
+Give `disco-dev` developer permissions **only** inside the development project:
 
 ```bash
 oc adm policy add-role-to-user edit disco-dev -n dev-app-project
@@ -128,10 +130,27 @@ oc adm policy add-role-to-user edit disco-dev -n dev-app-project
 
 ## Part 4: Verification Challenge 🧪
 
-To verify your work, open a new terminal tab or log out of your current session, and try the following:
+Let's verify that our authentication and authorization boundaries work perfectly.
 
-1. Log in as the developer: `oc login -u disco-dev`
-2. Try to view pods in the dev project: `oc get pods -n dev-app-project` *(Should succeed)*
-3. Try to view pods or create resources in the prod project: `oc get pods -n prod-app-project` *(Should fail with an Access Denied / Forbidden error!)*
+### 1. Test the Developer Login
+Log in as the developer and attempt to interact with both projects:
+
+```bash
+# Log in
+oc login [https://api.disco.lab:6443](https://api.disco.lab:6443) -u disco-dev -p Disco123!
+
+# Test Dev project (Should succeed)
+oc get pods -n dev-app-project
+
+# Test Prod project (Should fail with Forbidden / Access Denied)
+oc get pods -n prod-app-project
+```
+
+### 2. Test the Admin Login
+Switch back to the administrator account to confirm cluster-wide access:
+
+```bash
+oc login [https://api.disco.lab:6443](https://api.disco.lab:6443) -u disco-admin -p Disco123!
+```
 
 **Congratulations! Your first security milestone is complete! 🎉**
