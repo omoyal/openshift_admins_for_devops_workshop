@@ -54,7 +54,8 @@ oc run dev-attacker --image=registry.redhat.io/ubi8/ubi-minimal:latest -n dev-ap
 <br><br>
 
 ### 2. Test the Security Gap
-Let's try to reach Production from Dev. Since no web server is running, an **open network** will answer instantly with `Connection refused`:
+Let's try to reach Production from Dev.  
+Since no web server is running, an **open network** will answer instantly with `Connection refused`:
 
 ```bash
 oc exec -it dev-attacker -n dev-app-project -- curl --connect-timeout 3 http://prod-backend.prod-app-project.svc.cluster.local:80
