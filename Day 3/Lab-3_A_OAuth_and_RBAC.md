@@ -1,9 +1,51 @@
 # Day 3 Lab 1 - Securing the Gates (OAuth & RBAC)
 
+<br>
+
 Welcome to Day 3! In this first exercise, we will take on the role of an SRE hardening our cluster. We will connect OpenShift to a local Identity Provider using an `htpasswd` configuration, create enterprise users, and set up strict access control rules (RBAC).
+
+
+
+
 
 > [!IMPORTANT]
 > **Our Mission:** Create a dual-environment setup (`dev` and `prod`), onboard an Admin and a Developer, and ensure each has exactly the permissions they need—no more, no less.
+
+
+> [!IMPORTANT]
+> Just like the previous labs, we will walk through this process together, step-by-step. 
+> Take your time to understand each step!
+
+**Good luck!** 🚀
+
+---
+
+
+<br><br><br>
+
+> [!CAUTION]
+> ### ⚠️ CRITICAL: Check Your Terminal Before You Enter!
+> 
+> To save yourself from a headache and avoid running commands in the wrong place, **always double-check your terminal prompt color and hostname** before hitting Enter.
+> 
+> | Terminal Color | Hostname | Network | What is it for? |
+> | :--- | :--- | :--- | :--- |
+> | 🟣 **Purple / Blue** | `lab-user@jump` | **"Lowside"** | **Connected to the Internet.** Use this host to download tools, pull container images, and prepare installation assets. |
+> | 🟠 **Orange** | `lab-user@highside` | **"Highside"** | **Completely Air-Gapped (Disconnected).** This is where the actual lab happens. You will install the Quay mirror-registry and spin up your OpenShift cluster (`openshift.disco.lab`) here. |
+> 
+> #### 💡 Quick Tips:
+> * **To switch** from the jump box to the disconnected environment, simply run: `ssh highside`
+> * **Follow the colors!** The command boxes in your lab guide match these exact colors to show you exactly where to run them.
+
+---
+<br><br><br>
+
+
+
+
+
+
+
 
 ---
 
