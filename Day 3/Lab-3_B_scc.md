@@ -13,19 +13,16 @@ However, OpenShift enforces strict operating system-level security constraints r
 
 Since our Highside environment is completely air-gapped, we must first pull the required container image from the internet using our Jump Server and push it into our local Quay registry.
 
-
 ### 1. Download the Asset with OC-MIRROR (On Jump Server 🟣)
 Create an image set configuration file on your **Jump Server** to target the required image:
 
 ```bash
-cd /mnt/low-side-data/
+# Setup work directory
+cd /mnt/low-side-data/ && mkdir images_pre && cd images_pre
 
-mkdir images_pre
-
-
-
-cat << 'EOF' > /mnt/low-side-data/images_a/images_pre/imageset-config.yaml
-apiVersion: mirror.openshift.io/v1alpha2
+# Create the config file
+cat << 'EOF' > imageset-config.yaml
+apiVersion: mirror.openshift.io/v2alpha1
 kind: ImageSetConfiguration
 mirror:
   additionalImages:
@@ -36,33 +33,47 @@ EOF
 Run `oc-mirror` to download the image to your local disk, archive it, and transfer it over the network to the Highside server:
 
 ```bash
-# Download the image
-oc-mirror --config=/tmp/imageset-config.yaml file://mirror-disk
+# Download the image using v2 engine
+oc-mirror --config=imageset-config.yaml file://ubi-image --v2
 
+# Bundle the config and image data together
+mv imageset-config.yaml ubi-image/
+tar -czf mirror-image.tar.gz ubi-image/
 
-# Archive the data
-tar -czf /tmp/mirror-data.tar.gz mirror-disk/
-
-
-# Transfer to Highside
-scp /tmp/mirror-data.tar.gz highside:/tmp/
+# Transfer the archive to the Highside server
+rsync -avP /mnt/low-side-data/images_pre/mirror-image.tar.gz highside:/mnt/high-side-data/
 ```
+
+---
 
 ### 2. Publish to Local Registry (On Highside Server 🟠)
 Switch to your **Highside Server**, extract the data, and push the image directly into your local enterprise Quay registry:
 
 ```bash
-# SSH into Highside
+# Navigate and extract the archive
 ssh highside
+cd /mnt/high-side-data/ && mkdir images_pre && cd images_pre
+mv ../mirror-image.tar.gz .
+tar -xzf mirror-image.tar.gz
 
-# Extract the archive
-cd /tmp
-tar -xzf /tmp/mirror-data.tar.gz
+# Extract the config file so oc-mirror can read it
+cp ubi-image/imageset-config.yaml .
 
-# Push to local Quay
-oc-mirror --from file://mirror-disk docker://quay.disco.lab/openshift/release
+# Push the image directly into the local Quay registry
+oc-mirror --config=imageset-config.yaml --from file://ubi-image docker://$(hostname):8443 --v2
+
+# Deploy the IDMS on tje cluster
 ```
 
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br>
 ---
 
 ## Part 1: The Crash (Executed as Developer 🧑‍💻)
@@ -71,7 +82,7 @@ oc-mirror --from file://mirror-disk docker://quay.disco.lab/openshift/release
 Now that the image is safe inside our network, let's log in as the restricted developer account:
 
 ```bash
-oc login [https://api.disco.lab:6443](https://api.disco.lab:6443) -u disco-dev -p Disco123!
+oc login https://api.disco.lab:6443 -u disco-dev -p Disco123!
 ```
 
 ### 4. Deploy the Legacy Application
@@ -96,7 +107,7 @@ spec:
     spec:
       containers:
       - name: banking-container
-        image: quay.disco.lab/openshift/release/ubi8/ubi-minimal:latest
+        image: registry.redhat.io/ubi8/ubi-minimal:latest
         command: ["/bin/sh", "-c", "echo 'Banking system running as root!' && sleep 3600"]
         securityContext:
           runAsUser: 0
