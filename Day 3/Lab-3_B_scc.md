@@ -9,6 +9,8 @@ However, OpenShift enforces strict operating system-level security constraints r
 
 ---
 
+<br><br>
+
 ## Part 0: SRE Pre-requisite - Mirroring the Image (oc-mirror v2)
 
 Since our Highside environment is completely air-gapped, we must first pull the required container image from the internet using our Jump Server and push it into our local Quay registry.
