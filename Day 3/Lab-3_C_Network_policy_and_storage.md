@@ -7,7 +7,27 @@ We are going to wrap up the day with a fast, high-impact exercise: closing a sec
 > **Our Mission:** Secure the network perimeter using a **NetworkPolicy** and attach persistent **Storage** to our application using *only* the `ubi-minimal` image we already mirrored.
 
 ---
+<br><br><br>
 
+---
+
+> [!CAUTION]
+> ### ⚠️ CRITICAL: Check Your Terminal Before You Enter!
+> 
+> To save yourself from a headache and avoid running commands in the wrong place, **always double-check your terminal prompt color and hostname** before hitting Enter.
+> 
+> | Terminal Color | Hostname | Network | What is it for? |
+> | :--- | :--- | :--- | :--- |
+> | 🟣 **Purple / Blue** | `lab-user@jump` | **"Lowside"** | **Connected to the Internet.** Use this host to download tools, pull container images, and prepare installation assets. |
+> | 🟠 **Orange** | `lab-user@highside` | **"Highside"** | **Completely Air-Gapped (Disconnected).** This is where the actual lab happens. You will install the Quay mirror-registry and spin up your OpenShift cluster (`openshift.disco.lab`) here. |
+> 
+> #### 💡 Quick Tips:
+> * **To switch** from the jump box to the disconnected environment, simply run: `ssh highside`
+> * **Follow the colors!** The command boxes in your lab guide match these exact colors to show you exactly where to run them.
+
+---
+
+<br><br><br>
 
 
 
@@ -16,23 +36,33 @@ We are going to wrap up the day with a fast, high-impact exercise: closing a sec
 ## Part 1: The 3-Minute Network Isolation Challenge
 
 ### 1. Launch the Deployments (As Admin 🛠️)
-Make sure you are logged in as admin and spin up both environments instantly using our mirrored image:
-```bash
-oc login [https://api.disco.lab:6443](https://api.disco.lab:6443) -u disco-admin -p Disco123!
+Make sure you are logged in as admin on the Highside and spin up both environments instantly using the official image path (the cluster will automatically mirror this to your local registry):
 
-# Create Production Deployment
-oc create deployment prod-backend --image=quay.disco.lab/openshift/release/ubi8/ubi-minimal:latest -n prod-app-project -- /bin/sh -c "sleep 3600"
+```bash
+oc login https://api.disco.lab:6443 -u disco-admin -p Disco123!
+
+# Create Production Deployment (Using the generic Red Hat path)
+oc create deployment prod-backend --image=registry.redhat.io/ubi8/ubi-minimal:latest -n prod-app-project -- /bin/sh -c "sleep 3600"
+
+# Expose the deployment as a Service so the internal DNS can resolve it!
+oc expose deployment prod-backend --port=80 -n prod-app-project
 
 # Create Development Attacker Pod
-oc run dev-attacker --image=quay.disco.lab/openshift/release/ubi8/ubi-minimal:latest -n dev-app-project -- /bin/sh -c "sleep 3600"
+oc run dev-attacker --image=registry.redhat.io/ubi8/ubi-minimal:latest -n dev-app-project -- /bin/sh -c "sleep 3600"
 ```
+
+<br><br>
 
 ### 2. Test the Security Gap
 Let's try to reach Production from Dev. Since no web server is running, an **open network** will answer instantly with `Connection refused`:
+
 ```bash
-oc exec -it dev-attacker -n dev-app-project -- curl --connect-timeout 3 [http://prod-backend.prod-app-project.svc.cluster.local:80](http://prod-backend.prod-app-project.svc.cluster.local:80)
+oc exec -it dev-attacker -n dev-app-project -- curl --connect-timeout 3 http://prod-backend.prod-app-project.svc.cluster.local:80
 ```
 > 🔌 **The Gap Confirmed:** The response returns instantly (`Connection refused`). This means the network allowed the traffic to pass right through!
+
+
+<br>
 
 ### 3. Apply the Firewall (NetworkPolicy)
 Let's label the production namespace and apply a strict firewall rule to drop all external incoming traffic:
@@ -59,13 +89,20 @@ spec:
 EOF
 ```
 
+<br><br>
+
+
 ### 4. Verify the Firewall Works
 Run the exact same command again. The request will now hang and **timeout**, proving the NetworkPolicy successfully intercepted and dropped the traffic:
 ```bash
-oc exec -it dev-attacker -n dev-app-project -- curl --connect-timeout 3 [http://prod-backend.prod-app-project.svc.cluster.local:80](http://prod-backend.prod-app-project.svc.cluster.local:80)
+
+oc exec -it dev-attacker -n dev-app-project -- curl --connect-timeout 3 http://prod-backend.prod-app-project.svc.cluster.local:80
 ```
 
+
 ---
+
+<br><br><br>
 
 ## Part 2: Investigating & Adding Cluster Storage
 
