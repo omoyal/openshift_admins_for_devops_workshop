@@ -101,6 +101,10 @@ Run the exact same command again. The request will now hang and **timeout**, pro
 oc exec -it dev-attacker -n dev-app-project -- curl --connect-timeout 3 http://prod-backend.prod-app-project.svc.cluster.local:80
 ```
 
+> 🛡️ **The Firewall Works:** The command hangs and fails with **`Connection timed out`** after 3 seconds.
+
+> **What it means:** The network is now **ISOLATED**. Your packet was intercepted and silently dropped by the NetworkPolicy before it could ever reach the Production namespace, proving the firewall successfully blocked the unauthorized traffic!
+
 
 ---
 
