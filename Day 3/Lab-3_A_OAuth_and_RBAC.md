@@ -110,7 +110,7 @@ oc rollout status deployment/oauth-openshift -n openshift-authentication
 
 ---
 
-## Now Check the new users  
+### Now Check the new users  
 Check the Disco-admin:
 ```bash
 # Kubeadmin logout
@@ -160,7 +160,7 @@ oc get nodes
 
 Now that our identity provider is live, let's configure cluster and namespace-level permissions for our new users.
 
-<br><br>
+<br>
 
 ### 5. Assign Cluster Admin Rights
 Give `disco-admin` full administrative access to the entire cluster:
