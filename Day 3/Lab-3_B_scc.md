@@ -144,6 +144,8 @@ oc get events -n dev-app-project --sort-by='.metadata.creationTimestamp'
 
 ---
 
+<br><br><br>
+
 ## Part 3: The SRE Fix (Executed as Admin 🛠️)
 
 To fix this without globally compromising the cluster's safety, we will isolate this application by running it under a custom **ServiceAccount** and granting *only* that specific account the permission to bypass the root restriction.
@@ -172,6 +174,8 @@ oc adm policy add-scc-to-user anyuid -z legacy-sa -n dev-app-project
 > **oc adm policy add-scc-to-user** (assigns an OS-level Security Context Constraint role) **anyuid** (the specific SCC policy that permits any container UID, including root) **-z** (shorthand flag pointing directly to a ServiceAccount name) **legacy-sa** (the target service account identity).
 
 ---
+
+<br><br><br>
 
 ## Part 4: Testing the Resolution 🧪
 
