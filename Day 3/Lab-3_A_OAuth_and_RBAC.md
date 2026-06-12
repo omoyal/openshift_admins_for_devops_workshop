@@ -13,8 +13,6 @@ Welcome to Day 3! In this first exercise, we will take on the role of an SRE har
 
 ---
 
-<br><br><br>
-
 > [!CAUTION]
 > ### ⚠️ CRITICAL: Check Your Terminal Before You Enter!
 > 
@@ -30,10 +28,6 @@ Welcome to Day 3! In this first exercise, we will take on the role of an SRE har
 > * **Follow the colors!** The command boxes in your lab guide match these exact colors to show you exactly where to run them.
 
 ---
-<br><br><br>
-
-
-
 
 ## Part 1: Setting Up the Environments
 Let's start by creating our isolated workspaces.
@@ -120,7 +114,3 @@ To verify your work, open a new terminal tab or log out of your current session,
 3. Try to view pods or create resources in the prod project: `oc get pods -n prod-app-project` *(Should fail with an Access Denied / Forbidden error!)*
 
 **Congratulations! Your first security milestone is complete! 🎉**
-
-
-
-
