@@ -154,6 +154,8 @@ oc get pods -n dev-app-project
 ```
 *Notice anything? The Pod isn't even being created, or it is stuck completely!*
 
+<br>
+
 ### 6. Inspect the Deployment Warnings
 Since there is no pod to inspect, we must look at the **Events** layer to see why the cluster is refusing to build the pod:
 
