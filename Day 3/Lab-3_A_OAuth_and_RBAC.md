@@ -70,7 +70,6 @@ echo "disco-dev:{SHA}Uo3KBq9vhu4j2V0klNxVs38fAR4=" >> /tmp/htpasswd
 Now, load the file into OpenShift's core configuration namespace:
 
 ```bash
-oc delete secret htpasswd-secret -n openshift-config --ignore-not-found
 oc create secret generic htpasswd-secret --from-file=htpasswd=/tmp/htpasswd -n openshift-config
 ```
 
