@@ -77,7 +77,7 @@ oc-mirror --config=imageset-config.yaml --from file://ubi-image docker://$(hostn
 
 
 
-<br><br><br><br><br><br>
+<br><br><br><br>
 ---
 
 ## Part 1: The Crash (Executed as Developer 🧑‍💻)
