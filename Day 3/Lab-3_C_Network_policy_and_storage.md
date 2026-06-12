@@ -60,7 +60,8 @@ Since no web server is running, an **open network** will answer instantly with `
 ```bash
 oc exec -it dev-attacker -n dev-app-project -- curl --connect-timeout 3 http://prod-backend.prod-app-project.svc.cluster.local:80
 ```
-> 🔌 **The Gap Confirmed:** The response returns instantly (`Connection refused`). This means the network allowed the traffic to pass right through!
+> 🔌 **The Gap Confirmed:** The response returns instantly with **`Connection refused`**.
+> **What it means:** The network is wide **OPEN**. Your packet successfully traveled from Dev and reached the Production container. It was "refused" only because no web server is running on port 80, proving there is zero network isolation!
 
 
 <br>
