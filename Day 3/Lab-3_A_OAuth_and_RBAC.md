@@ -6,7 +6,7 @@ We will connect OpenShift to a local Identity Provider using an `htpasswd` confi
 
 > [!IMPORTANT]
 > **Our Mission:**
-> Create a dual-projecrs (NameSpaces) setup (`dev` and `prod`), onboard an Admin and a Developer, and ensure each has exactly the permissions they need—no more, no less.
+Create a dual-projecrs (NameSpaces) setup (`dev` and `prod`), onboard an Admin and a Developer, and ensure each has exactly the permissions they need—no more, no less.
 
 
 > [!IMPORTANT]
