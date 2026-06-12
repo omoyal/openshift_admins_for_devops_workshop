@@ -129,7 +129,16 @@ spec:
       storage: 1Gi
 EOF
 ```
-*(Verify it is ready by running: `oc get pvc -n prod-app-project` – it should say **`Bound`**).*
+
+Check the status of your request:
+```bash
+oc get pvc -n prod-app-project
+```
+
+> [!NOTE]
+> ** Don't Panic if it says `PENDING`!** > Modern clusters use a smart storage feature called `WaitForFirstConsumer`. This means OpenShift is intentionally freezing the disk creation until an actual Pod asks for it. It wants to see where the Pod is going to run first, so it can create the physical disk in the exact same rack/node!
+
+<br>
 
 ### 7. Add the Storage to the Application
 Attach and mount this new disk directly into our production deployment folder (`/mnt/data`):
