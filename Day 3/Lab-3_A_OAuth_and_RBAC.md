@@ -38,44 +38,49 @@ We will connect OpenShift to a local Identity Provider using an `htpasswd` confi
 
 <br><br><br>
 
+
+
+
 ## Part 1: Setting Up the Environments
-Let's start by creating our isolated workspaces.
+Let's start by creating our isolated Projects (NameSpaces).  
+VERIFY you are on **Highside Server** (🟠 Orange prompt) !
 
 ```bash
+oc login https://api.disco.lab:6443 --username kubeadmin
+(# The kubeadmin password in: ' /mnt/high-side-data/auth/kubeadmin-password ')
 oc new-project dev-app-project
 oc new-project prod-app-project
 ```
 
 ---
-
+<br><br>
 ## Part 2: Creating the Local Identity Provider (IdP)
-Since we are in a disconnected environment without an active LDAP server, we will simulate our enterprise users using a secure `htpasswd` file on the Highside server.
 
-### 1. Generate the htpasswd File
-SSH into your **Highside Server** (🟠 Orange prompt) and run the following commands to generate the encrypted password file for our two users:
+We will deploy our user database directly into OpenShift using a Kubernetes Secret. Both users (`disco-admin` and `disco-dev`) are pre-configured with the same password: **`Disco123!`**
 
-```bash
-# Create the file and add the admin user
-htpasswd -c -B /tmp/htpasswd disco-admin
-
-# Add the developer user to the existing file
-htpasswd -B /tmp/htpasswd disco-dev
-```
-*(Choose simple, memorable passwords for both users).*
-
-### 2. Inject the File into OpenShift as a Secret
-For OpenShift's authentication system to read this file, it must reside inside the cluster configuration namespace:
+### 1. Create the HTPasswd Secret
+Run the following command to create the secret configuration file directly inside the cluster:
 
 ```bash
-oc create secret generic htpasswd-secret --from-file=htpasswd=/tmp/htpasswd -n openshift-config
+cat <<EOF | oc apply -f -
+apiVersion: v1
+kind: Secret
+metadata:
+  name: htpasswd-secret
+  namespace: openshift-config
+type: Opaque
+stringData:
+  htpasswd: |
+    disco-admin:{SHA}W6ph5Z1Cg8YJPhceX/+bS7I6Eic=
+    disco-dev:{SHA}W6ph5Z1Cg8YJPhceX/+bS7I6Eic=
+EOF
 ```
 
-### 3. Update the Cluster OAuth Configuration
-Now, let's patch the global OAuth object to register our new `htpasswd` provider. 
+### 2. Update the Cluster OAuth Configuration
+Now, let's patch the global OAuth object to tell OpenShift to use this secret as our corporate login provider:
 
-Apply the following configuration to your cluster:
-
-```yaml
+```bash
+cat <<EOF | oc apply -f -
 apiVersion: config.openshift.io/v1
 kind: OAuth
 metadata:
@@ -88,10 +93,17 @@ spec:
     htpasswd:
       fileData:
         name: htpasswd-secret
+EOF
 ```
 
 > [!TIP]
 > Wait a minute or two for the Authentication Cluster Operator (`oc get co authentication`) to refresh and load the new provider.
+> 
+
+
+
+
+
 
 ---
 
