@@ -48,6 +48,8 @@ rsync -avP /mnt/low-side-data/images_pre/mirror-image.tar.gz highside:/mnt/high-
 
 ---
 
+<br>
+
 ### 2. Publish to Local Registry (On Highside Server 🟠)
 Switch to your **Highside Server**, extract the data, and push the image directly into your local enterprise Quay registry:
 
