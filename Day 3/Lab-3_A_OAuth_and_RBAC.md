@@ -113,11 +113,14 @@ Check the Disco-admin:
 ```bash
 # Kubeadmin logout
 oc logout
+
 # Login with Disco-admin
 oc login https://api.disco.lab:6443 -u disco-admin
 < Password is: Disco123! >
+
 # verify
 oc whoami
+
 # lets check if you have any permissions in cluster
 oc get pods
 oc get nodes
