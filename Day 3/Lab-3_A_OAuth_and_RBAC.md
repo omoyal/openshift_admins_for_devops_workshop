@@ -142,6 +142,7 @@ oc whoami
 # lets check if you have any permissions in cluster
 oc get pods
 oc get nodes
+```
 
 ---
 
@@ -157,18 +158,23 @@ oc get nodes
 
 Now that our identity provider is live, let's configure cluster and namespace-level permissions for our new users.
 
+<br><br>
+
 ### 5. Assign Cluster Admin Rights
 Give `disco-admin` full administrative access to the entire cluster:
 
 ```bash
 oc adm policy add-cluster-role-to-user cluster-admin disco-admin
+(# explain: 'add-cluter-role-to-user'Automaticly create a ClusterRoleBinding from user to ClusterRole: 'Cluster-admin')
 ```
 
-### 6. Assign Namespace-Level Developer Rights
+<br>
+
+### 6. Assign Admin-Namespace-Level Developer Rights
 Give `disco-dev` developer permissions **only** inside the development project:
 
 ```bash
-oc adm policy add-role-to-user edit disco-dev -n dev-app-project
+oc adm policy add-role-to-user admin disco-dev -n dev-app-project
 ```
 
 ---
@@ -182,7 +188,8 @@ Log in as the developer and attempt to interact with both projects:
 
 ```bash
 # Log in
-oc login [https://api.disco.lab:6443](https://api.disco.lab:6443) -u disco-dev -p Disco123!
+oc login https://api.disco.lab:6443 -u disco-dev
+# < Password: Disco123! >
 
 # Test Dev project (Should succeed)
 oc get pods -n dev-app-project
@@ -191,11 +198,18 @@ oc get pods -n dev-app-project
 oc get pods -n prod-app-project
 ```
 
+<br>
+
 ### 2. Test the Admin Login
 Switch back to the administrator account to confirm cluster-wide access:
 
 ```bash
-oc login [https://api.disco.lab:6443](https://api.disco.lab:6443) -u disco-admin -p Disco123!
+oc login https://api.disco.lab:6443 -u disco-admin
+# < Password: Disco123! >
+
+# Check Dev ns
+oc get pods -n dev-app-project
+
 ```
 
 **Congratulations! Your first security milestone is complete! 🎉**
