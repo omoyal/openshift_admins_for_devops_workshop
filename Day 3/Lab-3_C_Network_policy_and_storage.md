@@ -143,7 +143,9 @@ oc get pvc -n prod-app-project
 ```
 
 > [!NOTE]
-> ** Don't Panic if it says `PENDING`!** > Modern clusters use a smart storage feature called `WaitForFirstConsumer`. This means OpenShift is intentionally freezing the disk creation until an actual Pod asks for it. It wants to see where the Pod is going to run first, so it can create the physical disk in the exact same rack/node!
+
+> **Don't Panic if it says `PENDING`!** Modern clusters use a smart storage feature called `WaitForFirstConsumer`. 
+This means OpenShift is intentionally freezing the disk creation until an actual Pod asks for it. It wants to see where the Pod is going to run first, so it can create the physical disk in the exact same rack/node!
 
 <br>
 
