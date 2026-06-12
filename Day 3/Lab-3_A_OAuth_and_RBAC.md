@@ -126,13 +126,16 @@ oc get pods
 oc get nodes
 ```
 
+
 Check the Disco-dev:
 ```bash
 # Disco-admin logout
 oc logout
+
 # Login with Disco-dev
 oc login https://api.disco.lab:6443 -u disco-dev
 < Password is: Disco123! >
+
 # verify
 oc whoami
 
