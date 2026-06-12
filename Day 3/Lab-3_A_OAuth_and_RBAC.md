@@ -12,7 +12,7 @@ Welcome to Day 3! In this first exercise, we will take on the role of an SRE har
 > **Our Mission:** Create a dual-environment setup (`dev` and `prod`), onboard an Admin and a Developer, and ensure each has exactly the permissions they need—no more, no less.
 
 
-> [!IMPORTANT]
+> [!REMINDER]
 > Just like the previous labs, we will walk through this process together, step-by-step. 
 > Take your time to understand each step!
 
