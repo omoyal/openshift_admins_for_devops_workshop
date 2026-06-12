@@ -71,8 +71,8 @@ metadata:
 type: Opaque
 stringData:
   htpasswd: |
-    disco-admin:{SHA}W6ph5Z1Cg8YJPhceX/+bS7I6Eic=
-    disco-dev:{SHA}W6ph5Z1Cg8YJPhceX/+bS7I6Eic=
+    disco-admin:{SHA}ZoYO96hoR9/CWYvmmFARf/sqdSo=
+    disco-dev:{SHA}ZoYO96hoR9/CWYvmmFARf/sqdSo=
 EOF
 ```
 
