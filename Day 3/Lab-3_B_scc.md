@@ -13,11 +13,18 @@ However, OpenShift enforces strict operating system-level security constraints r
 
 Since our Highside environment is completely air-gapped, we must first pull the required container image from the internet using our Jump Server and push it into our local Quay registry.
 
-### 1. Download the Asset (On Jump Server 🟣)
+
+### 1. Download the Asset with OC-MIRROR (On Jump Server 🟣)
 Create an image set configuration file on your **Jump Server** to target the required image:
 
 ```bash
-cat << 'EOF' > /tmp/imageset-config.yaml
+cd /mnt/low-side-data/
+
+mkdir images_pre
+
+
+
+cat << 'EOF' > /mnt/low-side-data/images_a/images_pre/imageset-config.yaml
 apiVersion: mirror.openshift.io/v1alpha2
 kind: ImageSetConfiguration
 mirror:
@@ -32,8 +39,10 @@ Run `oc-mirror` to download the image to your local disk, archive it, and transf
 # Download the image
 oc-mirror --config=/tmp/imageset-config.yaml file://mirror-disk
 
+
 # Archive the data
 tar -czf /tmp/mirror-data.tar.gz mirror-disk/
+
 
 # Transfer to Highside
 scp /tmp/mirror-data.tar.gz highside:/tmp/
