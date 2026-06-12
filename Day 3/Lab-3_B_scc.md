@@ -178,7 +178,7 @@ To fix this without globally compromising the cluster's safety, we will isolate 
 Only cluster administrators can manipulate system-level security constraints (SCCs):
 
 ```bash
-oc login [https://api.disco.lab:6443](https://api.disco.lab:6443) -u disco-admin -p Disco123!
+oc login https://api.disco.lab:6443 -u disco-admin -p Disco123!
 ```
 
 ### 8. Create a Dedicated ServiceAccount
