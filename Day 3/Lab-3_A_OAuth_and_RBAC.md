@@ -105,8 +105,48 @@ oc rollout status deployment/oauth-openshift -n openshift-authentication
 ```
 *(Wait until you see: `deployment "oauth-openshift" successfully rolled out`)*
 
+
 ---
 
+# Now Check the new users  
+Check the Disco-admin:
+```bash
+# Kubeadmin logout
+oc logout
+# Login with Disco-admin
+oc login https://api.disco.lab:6443 -u disco-admin
+< Password is: Disco123! >
+# verify
+oc whoami
+# lets check if you have any permissions in cluster
+oc get pods
+oc get nodes
+```
+
+Check the Disco-dev:
+```bash
+# Disco-admin logout
+oc logout
+# Login with Disco-dev
+oc login https://api.disco.lab:6443 -u disco-dev
+< Password is: Disco123! >
+# verify
+oc whoami
+
+# lets check if you have any permissions in cluster
+oc get pods
+oc get nodes
+
+---
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br>
 ## Part 3: Enforcing RBAC (Permissions)
 
 Now that our identity provider is live, let's configure cluster and namespace-level permissions for our new users.
