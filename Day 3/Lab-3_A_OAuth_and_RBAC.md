@@ -1,10 +1,13 @@
 # Day 3 Lab 1 - Securing the Gates (OAuth & RBAC)
 
 Welcome to Day 3!  
-In this first exercise, we will take on the role of an SRE hardening our cluster. We will connect OpenShift to a local Identity Provider using an `htpasswd` configuration, create enterprise users, and set up strict access control rules (RBAC).
+In this first exercise, we will take on the role of an SRE hardening our cluster.  
+We will connect OpenShift to a local Identity Provider using an `htpasswd` configuration, create enterprise users, and set up strict access control rules (RBAC).
 
 > [!IMPORTANT]
-> **Our Mission:** Create a dual-environment setup (`dev` and `prod`), onboard an Admin and a Developer, and ensure each has exactly the permissions they need—no more, no less.
+> **Our Mission:**
+> Create a dual-projecrs (NameSpaces) setup (`dev` and `prod`), onboard an Admin and a Developer, and ensure each has exactly the permissions they need—no more, no less.
+
 
 > [!IMPORTANT]
 > Just like the previous labs, we will walk through this process together, step-by-step. 
