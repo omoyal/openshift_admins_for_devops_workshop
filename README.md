@@ -61,6 +61,6 @@ Here are the essential links to access your lab environment:
 | **OpenShift Update Channel** | [OCP-update-path](https://access.redhat.com/labs/ocpupgradegraph/update_path) |
 | **Lab Environment URL** | [Lab-Workspace](https://catalog.demo.redhat.com/workshop/ttzbm3) |
 
-
+<br><br>
 
 <img width="1246" height="681" alt="image" src="https://github.com/user-attachments/assets/0065b9ac-1804-40a8-9e7c-a11385df8745" />
