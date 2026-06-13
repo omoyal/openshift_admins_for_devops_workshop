@@ -1,9 +1,28 @@
 # 🚀 OpenShift Administration for DevOps Workshop
 
-Welcome to the OpenShift Administration workshop!  
+Welcome to the "OpenShift Administration For DevOps" workshop!  
+
 This repository contains all the hands-on lab exercises you will need throughout the course.
 
-<br>
+---
+
+## 🔒 Crucial Environment Notice: 100% Air-Gapped
+> [!WARNING]
+> This entire workshop is built from the ground up to simulate a **completely disconnected (Air-Gapped) enterprise environment**. You will learn how to mirror container images, deploy local secure registries, and bootstrap infrastructure with **zero direct internet access**.
+
+> [!NOTE]
+> **Red Hat Internal Access Only:** The infrastructure for these exercises is powered by the **OpenShift Disconnected Workshop** catalog item. If you are a Red Hat employee with provisioning rights, you can locate and deploy this environment via the [Red Hat Demo Catalog](https://catalog.demo.redhat.com/).
+
+---
+
+## 📋 Prerequisites
+Please make sure you have prepared the following accounts *before* we begin the practical sections:
+
+* 🐙 **GitHub Account:** Required for accessing labs, configuration assets, and code repositories.
+* 📧 **Google Account:** Required for accessing workshop mail communication and shared presentations.
+* 🎩 **Red Hat Account (Optional):** Useful for pulling official documentation or accessing extra developer tokens.
+
+---
 
 ## 🔗 Quick Links 
 
@@ -11,43 +30,11 @@ Here are the essential links to access your lab environment:
 
 | Resource | URL |
 | :--- | :--- |
-| **All Presentations** | [Presentetions-link](https://drive.google.com/drive/u/0/folders/1gpfUMSFnK6pPNkeRODkjMcoQVKJbr5Oy) |
-| **Git repo for exercises** | [GitHub-link](https://github.com/omoyal/openshift_admins_for_devops_workshop) |
-| **Openshift Docs** | [Ocp-4.17-docs](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17) |
-| **Openshift Update Chanel** | [OCP-update-path](https://access.redhat.com/labs/ocpupgradegraph/update_path) |
-| **Lab url (per email)** | [lab](https://catalog.demo.redhat.com/workshop/ttzbm3) |
-
-<br>
-
-## 🔐 Credentials
-
-Use the following credentials to log in to your environment and the OpenShift cluster:
-
-*   **Lab User:** `lab-user`
-*   **Lab Password:** `[Insert Lab Password Here]`
-*   **OpenShift Admin User:** `[Insert Admin Username Here]`
-*   **OpenShift Admin Password:** `[Insert Admin Password Here]`
-
-> [!NOTE]
-> Please replace the placeholders with the actual URLs and credentials provided by the instructor at the beginning of the workshop.
-
-<br>
-
-## 📂 Repository Structure
-
-This repository is organized day-by-day to match the workshop's syllabus. Inside each folder, you will find a `README.md` file with the specific exercises and goals for that day.
-
-*   [**Day 1: The Foundation - Architecture & Installation**](./Day%201/README.md)
-*   [**Day 2: Disconnected Operations & Operator Lifecycle**](./Day%202/README.md)
-*   [**Day 3: Security, Identity & Storage**](./Day%203/README.md)
-*   [**Day 4: Day 2 Management & The Upgrade Path**](./Day%204/README.md)
-*   [**Day 5: Monitoring, Logging & Troubleshooting**](./Day%205/README.md)
-
----
-*Ready to start? Head over to [Day 1](./Day%201/README.md) and let's get building!*
-
-
-
+| **All Presentations** | [Presentations-link](https://drive.google.com/drive/u/0/folders/1gpfUMSFnK6pPNkeRODkjMcoQVKJbr5Oy) |
+| **Git Repo for Exercises** | [GitHub-link](https://github.com/omoyal/openshift_admins_for_devops_workshop) |
+| **OpenShift Docs (v4.17)** | [OCP-4.17-docs](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17) |
+| **OpenShift Update Channel** | [OCP-update-path](https://access.redhat.com/labs/ocpupgradegraph/update_path) |
+| **Lab Environment URL** | [Lab-Workspace](https://catalog.demo.redhat.com/workshop/ttzbm3) |
 
 
 
