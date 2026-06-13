@@ -12,7 +12,7 @@ Here are the essential links to access your lab environment:
 | Resource | URL |
 | :--- | :--- |
 | **All presentations** | [Presentetions-link](https://drive.google.com/drive/u/0/folders/1gpfUMSFnK6pPNkeRODkjMcoQVKJbr5Oy) |
-| **Git repo for exrarcies** | [`[Git]`](https://github.com/omoyal/openshift_admins_for_devops_workshop) |
+| **Git repo for exrarcies** | [Git](https://github.com/omoyal/openshift_admins_for_devops_workshop) |
 | **OpenShift Web Console** | `[Insert Console URL Here]` |
 | **API Endpoint** | `[Insert API URL Here]` |
 
