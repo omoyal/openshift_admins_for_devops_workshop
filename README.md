@@ -42,3 +42,10 @@ This repository is organized day-by-day to match the workshop's syllabus. Inside
 
 ---
 *Ready to start? Head over to [Day 1](./Day%201/README.md) and let's get building!*
+
+
+
+
+
+
+<img width="1246" height="681" alt="image" src="https://github.com/user-attachments/assets/0065b9ac-1804-40a8-9e7c-a11385df8745" />
