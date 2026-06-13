@@ -5,7 +5,7 @@ This repository contains all the hands-on lab exercises you will need throughout
 
 <br>
 
-## 🔗 Quick Links & Access
+## 🔗 Quick Links 
 
 Here are the essential links to access your lab environment:
 
@@ -15,10 +15,7 @@ Here are the essential links to access your lab environment:
 | **Git repo for exercises** | [GitHub-link](https://github.com/omoyal/openshift_admins_for_devops_workshop) |
 | **Openshift Docs** | [Ocp-4.17-docs](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17) |
 | **Openshift Update Chanel** | [OCP-update-path](https://access.redhat.com/labs/ocpupgradegraph/update_path) |
-
-
-
-| **API Endpoint** | `[Insert API URL Here]` |
+| **Lab url (per email)** | [lab](https://catalog.demo.redhat.com/workshop/ttzbm3) |
 
 <br>
 
