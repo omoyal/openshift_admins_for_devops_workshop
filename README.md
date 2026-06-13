@@ -40,6 +40,15 @@ Please make sure you have prepared the following accounts *before* we begin the 
 
 <br>
 
+## 📅 Workshop Layout & Lab Folders
+
+This repository is organized into directories by day. Each day, we will complete the corresponding lab exercises.  
+The labs are provided in Markdown (.md) format, and each file's title indicates its specific topic.
+
+---
+
+<br>
+
 ## 🔗 Quick Links 
 
 Here are the essential links to access your lab environment:
