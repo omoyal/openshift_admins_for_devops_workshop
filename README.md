@@ -1,6 +1,7 @@
 # 🚀 OpenShift Administration for DevOps Workshop
 
-Welcome to the OpenShift Administration workshop! This repository contains all the hands-on lab exercises you will need throughout the course.
+Welcome to the OpenShift Administration workshop!  
+This repository contains all the hands-on lab exercises you will need throughout the course.
 
 <br>
 
@@ -10,6 +11,7 @@ Here are the essential links to access your lab environment:
 
 | Resource | URL |
 | :--- | :--- |
+| **All presentations** | `[[Insert Lab URL Here](https://drive.google.com/drive/u/0/folders/1gpfUMSFnK6pPNkeRODkjMcoQVKJbr5Oy)]` |
 | **Lab Environment (Jump/Highside)** | `[Insert Lab URL Here]` |
 | **OpenShift Web Console** | `[Insert Console URL Here]` |
 | **API Endpoint** | `[Insert API URL Here]` |
