@@ -11,7 +11,7 @@ Here are the essential links to access your lab environment:
 
 | Resource | URL |
 | :--- | :--- |
-| **All presentations** | `[[Insert Lab URL Here](https://drive.google.com/drive/u/0/folders/1gpfUMSFnK6pPNkeRODkjMcoQVKJbr5Oy)]` |
+| **All presentations** | [Presentetions-link](https://drive.google.com/drive/u/0/folders/1gpfUMSFnK6pPNkeRODkjMcoQVKJbr5Oy) |
 | **Lab Environment (Jump/Highside)** | `[Insert Lab URL Here]` |
 | **OpenShift Web Console** | `[Insert Console URL Here]` |
 | **API Endpoint** | `[Insert API URL Here]` |
