@@ -4,16 +4,30 @@ Welcome to the "OpenShift Administration For DevOps" workshop!
 
 This repository contains all the hands-on lab exercises you will need throughout the course.
 
+### 🗺️ Your Journey: From User to Administrator
+This workshop is intentionally designed to shift your mindset and capabilities **from an OpenShift User to a confident OpenShift Administrator**. 
+
+Instead of just interacting with an existing cluster, you will take the driver's seat and experience the full administrative lifecycle:
+* 🛠️ **Build From Scratch:** Learn how to deploy a brand-new environment under strict enterprise conditions.
+* ⚙️ **Advanced Configuration:** Deep-dive into cluster automation, Day-2 operations, and security constraints.
+* 🧠 **Master Core Concepts:** Gain a rock-solid understanding of the underlying SRE architecture—including networking isolation, air-gapped mirroring, and dynamic persistent storage.
+
 ---
+
+<br>
 
 ## 🔒 Crucial Environment Notice: 100% Air-Gapped
 > [!WARNING]
 > This entire workshop is built from the ground up to simulate a **completely disconnected (Air-Gapped) enterprise environment**. You will learn how to mirror container images, deploy local secure registries, and bootstrap infrastructure with **zero direct internet access**.
 
+<br>
+
 > [!NOTE]
 > **Red Hat Internal Access Only:** The infrastructure for these exercises is powered by the **OpenShift Disconnected Workshop** catalog item. If you are a Red Hat employee with provisioning rights, you can locate and deploy this environment via the [Red Hat Demo Catalog](https://catalog.demo.redhat.com/).
 
 ---
+
+<br>
 
 ## 📋 Prerequisites
 Please make sure you have prepared the following accounts *before* we begin the practical sections:
@@ -23,6 +37,8 @@ Please make sure you have prepared the following accounts *before* we begin the 
 * 🎩 **Red Hat Account (Optional):** Useful for pulling official documentation or accessing extra developer tokens.
 
 ---
+
+<br>
 
 ## 🔗 Quick Links 
 
