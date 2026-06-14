@@ -55,7 +55,7 @@ Here are the essential links to access your lab environment:
 
 | Resource | URL |
 | :--- | :--- |
-| **All Presentations** | [Presentations-link](https://drive.google.com/drive/u/0/folders/1gpfUMSFnK6pPNkeRODkjMcoQVKJbr5Oy) |
+| **All Presentations** | [Presentations-link](https://drive.google.com/drive/u/0/folders/1OtVk8sx6ICePICSqELN0bbEDePwtlnvG) |
 | **Git Repo for Exercises** | [GitHub-link](https://github.com/omoyal/openshift_admins_for_devops_workshop) |
 | **OpenShift Docs (v4.17)** | [OCP-4.17-docs](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17) |
 | **OpenShift Update Channel** | [OCP-update-path](https://access.redhat.com/labs/ocpupgradegraph/update_path) |
