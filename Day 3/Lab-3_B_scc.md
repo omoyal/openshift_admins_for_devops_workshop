@@ -85,7 +85,9 @@ tar -xzf mirror-image.tar.gz
 cp ubi-image/imageset-config.yaml .
 
 # Push the image directly into the local Quay registry
-oc-mirror --config=imageset-config.yaml --from file://ubi-image docker://$(hostname):8443 --v2
+oc-mirror --config=imageset-config.yaml --from file://ubi-image docker://$(hostname):8443 --v2 
+(See if you need to Login Again to your Quay Artifactory - Podman login....)
+
 
 # Deploy the IDMS on tje cluster
 oc apply -f ubi-image/working-dir/cluster-resources/itms-oc-mirror.yaml
