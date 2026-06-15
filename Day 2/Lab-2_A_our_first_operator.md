@@ -45,6 +45,11 @@ In this lab, we will simulate a very common real-world scenario: bringing an ext
 We will create a dedicated directory under `/mnt/low-side-data` and write our configuration file there.
 
 ```bash
+
+oc login https://api.disco.lab:6443 --username kubeadmin
+(# The kubeadmin password in: ' /mnt/high-side-data/auth/kubeadmin-password ')
+
+
 cd /mnt/low-side-data/
 mkdir gitops-operator
 cd gitops-operator
