@@ -50,6 +50,7 @@ ssh highside
 
 oc login https://api.disco.lab:6443 --username kubeadmin
 (# The kubeadmin password in: ' /mnt/high-side-data/auth/kubeadmin-password ')
+
 oc new-project dev-app-project
 oc new-project prod-app-project
 ```
