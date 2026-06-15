@@ -113,7 +113,7 @@ oc rollout status deployment/oauth-openshift -n openshift-authentication
 
 ---  
 
-### See the mew OAuth CR   
+### See the our new OAuth CR   
 
 ```bash
 oc get oauth cluster -o yaml
