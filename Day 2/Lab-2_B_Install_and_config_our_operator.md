@@ -58,6 +58,10 @@ Let's use the CLI to investigate the core Operator Lifecycle Manager (OLM) compo
 **2.a. Subscription**
 Run the following command to locate our subscription:
 ```bash
+
+oc login https://api.disco.lab:6443 --username kubeadmin
+(# The kubeadmin password in: ' /mnt/high-side-data/auth/kubeadmin-password ')
+
 $ oc get subscription -A
 ```
 > [!TIP]
