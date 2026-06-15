@@ -46,7 +46,7 @@ Essential commands used during Day 1 to mirror images, operators, and platform r
 oc mirror --config=imageset-config.yaml file://mirror-v2
 
 # Push mirrored images from a local folder to your target enterprise registry
-oc mirror --from=file://mirror-v2 docker://[registry.example.com/ocp4](https://registry.example.com/ocp4)
+oc mirror --from=file://mirror-v2 docker://https://registry.example.com/ocp4
 
 # List available operator channels and catalogs to include in your config
 oc mirror list operators
