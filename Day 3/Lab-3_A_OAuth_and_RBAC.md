@@ -46,6 +46,8 @@ Let's start by creating our isolated Projects (NameSpaces).
 VERIFY you are on **Highside Server** (🟠 Orange prompt) !
 
 ```bash
+ssh highside
+
 oc login https://api.disco.lab:6443 --username kubeadmin
 (# The kubeadmin password in: ' /mnt/high-side-data/auth/kubeadmin-password ')
 oc new-project dev-app-project
