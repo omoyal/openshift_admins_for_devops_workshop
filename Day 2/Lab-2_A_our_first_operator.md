@@ -162,7 +162,7 @@ oc patch OperatorHub cluster --type merge -p '{"spec": {"disableAllDefaultSource
 ### 8. Deploy the Mirrored Kubernetes Objects
 Now, apply the generated manifests to register our local operator catalog in the cluster:
 ```bash
-oc apply -f /mnt/high-side-data/gitops/working-dir/cluster-resources/
+oc apply -f /mnt/high-side-data/gitops-operator/working-dir/cluster-resources/
 ```
 
 ---
