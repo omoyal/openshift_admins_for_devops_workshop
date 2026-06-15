@@ -89,7 +89,7 @@ oc-mirror --config=imageset-config.yaml --from file://ubi-image docker://$(hostn
 (See if you need to Login Again to your Quay Artifactory - Podman login....)
 
 
-# Deploy the IDMS on tje cluster
+# Deploy the IDMS on tje cluster (Need strong admin user kubeadmin or disco-admin)
 oc apply -f ubi-image/working-dir/cluster-resources/itms-oc-mirror.yaml
 ```
 
