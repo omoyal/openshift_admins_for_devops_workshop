@@ -110,8 +110,19 @@ oc rollout status deployment/oauth-openshift -n openshift-authentication
 *(Wait until you see: `deployment "oauth-openshift" successfully rolled out`)*
 
 
----
+---  
 
+### See the mew OAuth CR   
+
+```bash
+oc get oauth cluster -o yaml
+oc get users
+```
+
+
+---  
+
+ 
 ### Now Check the new users  
 Check the Disco-admin:
 ```bash
@@ -168,6 +179,11 @@ Now that our identity provider is live, let's configure cluster and namespace-le
 Give `disco-admin` full administrative access to the entire cluster:
 
 ```bash
+# Login with Strong uer (Kubeadmin)
+oc login https://api.disco.lab:6443 --username kubeadmin
+(# The kubeadmin password in: ' /mnt/high-side-data/auth/kubeadmin-password ')
+
+
 oc adm policy add-cluster-role-to-user cluster-admin disco-admin
 (# explain: 'add-cluter-role-to-user'Automaticly create a ClusterRoleBinding from user to ClusterRole: 'Cluster-admin')
 ```
