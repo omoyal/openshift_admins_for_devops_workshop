@@ -84,14 +84,20 @@ oc get pods -n openshift-user-workload-monitoring -w
 
 Now we will impersonate a developer, create a new project, and deploy an application that forces the node to allocate high resources (generating a metric Spike). Since we are working in an air-gapped environment, we will use the CLI image already available within the cluster's internal Registry.
 
-1. Create a new Namespace for the application:
+1. Login and cretae app :
 ```bash
-oc new-project day5-apps
+oc login https://api.disco.lab:6443 -u disco-admin -p Disco123!
 
 ```
 
 
 2. Apply the following Deployment. It runs an infinite loop of mathematical calculations (`md5sum /dev/zero`) that will immediately max out a full CPU core:
+
+```bash
+
+vim stress-app.yaml
+
+```
 
 ```yaml
 apiVersion: apps/v1
