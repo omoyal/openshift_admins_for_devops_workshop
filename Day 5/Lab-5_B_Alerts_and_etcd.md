@@ -79,6 +79,9 @@ The etcd database is the cluster's heartbeat. We never touch it without a fresh 
 
 ```bash
 ls -lh /home/core/assets/backup
+
+# exit from debug pod
+Ctrl + D X 2
 ```
 
 3. **Critical Thinking:** Why is it mandatory to run this script specifically on a Master node rather than from your local `oc` CLI?
