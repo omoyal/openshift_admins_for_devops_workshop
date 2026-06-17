@@ -58,14 +58,15 @@ oc exec -n openshift-monitoring alertmanager-main-0 -c alertmanager -- \
 ## Part 2: etcd Disaster Recovery
 The etcd database is the cluster's heartbeat. We never touch it without a fresh backup.
 
-1. **Backup:** Connect to a Master node via SSH and execute the built-in backup script.
+1. **Backup:** Perform the backup. You can use SSH (if configured) or the preferred `oc debug` method.
 
-```bash
-   # 1. Identify a master node
-   oc get nodes -l node-role.kubernetes.io/master
+   **Option A: Using oc debug (Recommended/No SSH required)**
+   ```bash
+   # 1. Start a debug session on a master node
+   oc debug node/<master-node-name>
    
-   # 2. SSH into the master node (requires appropriate permissions)
-   ssh core@<master-node-name>
+   # 2. Switch to the host filesystem
+   chroot /host
    
    # 3. Run the backup script
    sudo /usr/local/bin/cluster-backup.sh /home/core/assets/backup
@@ -74,6 +75,7 @@ The etcd database is the cluster's heartbeat. We never touch it without a fresh 
 
 
 2. **Verification:** Confirm the creation of the `snapshot.db` and the static pod resources file in the destination folder.
+
 ```bash
 ls -lh /home/core/assets/backup
 ```
@@ -84,6 +86,8 @@ ls -lh /home/core/assets/backup
 
 ---
 
+<br><br>
+
 ## Part 3: Protecting Data at Rest (etcd Encryption)
 
 In a secure environment, etcd contents (including Secrets) must be encrypted.
@@ -91,7 +95,7 @@ In a secure environment, etcd contents (including Secrets) must be encrypted.
 1. **Status Check:** Check if encryption is currently enabled on the `KubeAPIServer` operator:
 ```bash
 oc get kubeapiserver cluster -o=jsonpath='{.spec.encryption.type}'
-#(If empty, encryption is disabled)
+# (If the output is empty, encryption is currently disabled)
 ```
 
 
