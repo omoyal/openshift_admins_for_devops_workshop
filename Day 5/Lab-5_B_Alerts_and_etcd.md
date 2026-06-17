@@ -1,4 +1,3 @@
-```markdown
 # Lab 5.2: Infrastructure Maintenance & Disaster Recovery
 
 ### Lab Objectives:
