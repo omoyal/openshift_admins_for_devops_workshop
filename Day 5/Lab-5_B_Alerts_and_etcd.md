@@ -30,7 +30,7 @@ oc get nodes
 2. **Alert Simulation:** Open the `Alertmanager` UI or use `amtool` to check if any alerts were triggered by your drainage (hint: look for `KubeNodeNotReady` or `KubeNodeUnreachable`).
 
 3. **Using amtool:** Use the CLI to silence the alert you just triggered for the next 15 minutes:
-# because we are in Air-gapped we dont have the amtool CLI, the CLI fond inside the LaertManager Pod
+#because we are in Air-gapped we dont have the amtool CLI, the CLI fond inside the LaertManager Pod
 
 ```bash
 oc get pods -n openshift-monitoring
