@@ -31,7 +31,7 @@ oc get nodes
 
 3. **Using amtool:** Use the CLI to silence the alert you just triggered for the next 15 minutes:
 
-because we are in Air-gapped we dont have the amtool CLI, the CLI fond inside the LaertManager Pod
+because we are in Air-gapped we dont have the amtool CLI, the CLI fond inside the AlertManager Pod
 
 ```bash
 oc get pods -n openshift-monitoring
