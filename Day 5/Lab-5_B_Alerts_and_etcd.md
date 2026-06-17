@@ -71,8 +71,8 @@ The etcd database is the cluster's heartbeat. We never touch it without a fresh 
    
    # 3. Run the backup script
    sudo /usr/local/bin/cluster-backup.sh /home/core/assets/backup
-
-```
+   
+   ```
 
 
 2. **Verification:** Confirm the creation of the `snapshot.db` and the static pod resources file in the destination folder.
