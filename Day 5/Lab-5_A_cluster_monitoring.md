@@ -86,7 +86,8 @@ oc get pods -n openshift-user-workload-monitoring -w
 
 ## Part 3: Creating a Developer Project and Stressing Resources (Air-Gapped)
 
-Now we will impersonate a developer, create a new project, and deploy an application that forces the node to allocate high resources (generating a metric Spike). Since we are working in an air-gapped environment, we will use the CLI image already available within the cluster's internal Registry.
+Now we will deploy an application that forces the node to allocate high resources (generating a metric Spike).  
+in the exist project.
 
 1. Login and cretae app :
 ```bash
