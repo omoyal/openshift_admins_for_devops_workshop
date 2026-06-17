@@ -92,46 +92,10 @@ Ctrl + D X 2
 
 <br><br>
 
-## Part 3: Protecting Data at Rest (etcd Encryption)
-
-In a secure environment, etcd contents (including Secrets) must be encrypted.
-
-1. **Status Check:** Check if encryption is currently enabled on the `KubeAPIServer` operator:
-```bash
-oc get kubeapiserver cluster -o=jsonpath='{.spec.encryption.type}'
-# (If the output is empty, encryption is currently disabled)
-```
-
-
-2. **Apply Encryption:** Update the `KubeAPIServer` configuration to enable AES-CBC encryption:
-```bash
-oc edit kubeapiserver cluster
-
-```
-
-
-*Modify the spec to look like this:*
-```yaml
-spec:
-  encryption:
-    type: aescbc
-
-```
-
-
-3. **Monitoring the Rollout:** The cluster will now automatically re-encrypt every Secret and ConfigMap. Monitor the progress of the `KubeAPIServer` and `etcd` operators:
-
-```bash
-# Watch the operators transition to 'Progressing'
-watch oc get co kube-apiserver etcd
-
-```
-
-
 
 ---
 
-## Part 4: Cleanup
+## Part 3: Cleanup
 
 1. Uncordon the node you drained earlier to allow it to rejoin the scheduling pool:
 ```bash
