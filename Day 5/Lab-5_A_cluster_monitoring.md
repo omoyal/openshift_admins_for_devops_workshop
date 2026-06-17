@@ -1,11 +1,31 @@
-```markdown
-# Lab 5.1: Cluster Observability & User Workload Monitoring
+# Lab 5: Advanced Observability and Proactive SRE 
 
-### Lab Objectives:
-* Gain hands-on experience with the infrastructure monitoring interface (Administrator View).
-* Activate monitoring for development teams (User Workload Monitoring) in an air-gapped environment.
-* Deploy an application, intentionally stress its resources, and observe the resulting metrics from the developer's perspective (Developer View).
+This lab focuses on transforming raw cluster metrics into actionable insights and proactive SRE operations.  
+You will configure the OpenShift Monitoring stack to enable **User Workload Monitoring (UWM)**, allowing developers to observe their applications natively.  
+You will then simulate infrastructure pressure to validate your monitoring pipelines and practice data-driven troubleshooting from the developer's perspective.
 
+
+<br><br><br>
+
+---
+
+> [!CAUTION]
+> ### ⚠️ CRITICAL: Check Your Terminal Before You Enter!
+> 
+> To save yourself from a headache and avoid running commands in the wrong place, **always double-check your terminal prompt color and hostname** before hitting Enter.
+> 
+> | Terminal Color | Hostname | Network | What is it for? |
+> | :--- | :--- | :--- | :--- |
+> | 🟣 **Purple / Blue** | `lab-user@jump` | **"Lowside"** | **Connected to the Internet.** Use this host to download tools, pull container images, and prepare installation assets. |
+> | 🟠 **Orange** | `lab-user@highside` | **"Highside"** | **Completely Air-Gapped (Disconnected).** This is where the actual lab happens. You will install the Quay mirror-registry and spin up your OpenShift cluster (`openshift.disco.lab`) here. |
+> 
+> #### 💡 Quick Tips:
+> * **To switch** from the jump box to the disconnected environment, simply run: `ssh highside`
+> * **Follow the colors!** The command boxes in your lab guide match these exact colors to show you exactly where to run them.
+
+---
+
+<br><br><br>
 
 
 ---
