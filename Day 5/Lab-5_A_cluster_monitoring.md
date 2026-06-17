@@ -98,7 +98,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: infra-stresser
-  namespace: day5-apps
+  namespace: dev-app-project
 spec:
   replicas: 1
   selector:
@@ -111,7 +111,7 @@ spec:
     spec:
       containers:
       - name: cpu-burner
-        image: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest
+        image: registry.redhat.io/ubi8/ubi-minimal:latest
         command: ["/bin/sh", "-c", "md5sum /dev/zero"]
         resources:
           limits:
