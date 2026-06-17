@@ -59,9 +59,9 @@ oc exec -n openshift-monitoring alertmanager-main-0 -c alertmanager -- \
 ## Part 2: etcd Disaster Recovery
 The etcd database is the cluster's heartbeat. We never touch it without a fresh backup.
 
-1. **Backup:** Perform the backup. You can use SSH (if configured) or the preferred `oc debug` method.
+1. **Backup:** Perform the backup. You can use `oc debug` method.
 
-   **Option A: Using oc debug (Recommended/No SSH required)**
+   **Using oc debug**
    ```bash
    # 1. Start a debug session on a master node
    oc debug node/<master-node-name>
@@ -117,6 +117,7 @@ spec:
 
 
 3. **Monitoring the Rollout:** The cluster will now automatically re-encrypt every Secret and ConfigMap. Monitor the progress of the `KubeAPIServer` and `etcd` operators:
+
 ```bash
 # Watch the operators transition to 'Progressing'
 watch oc get co kube-apiserver etcd
