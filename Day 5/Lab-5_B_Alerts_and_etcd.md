@@ -15,9 +15,6 @@ Before a P1 occurs, you must know how to safely manipulate cluster infrastructur
 1. **Node Draining:** Pick a Worker Node. Safely evacuate all pods from it to prepare for maintenance.
    ```bash
    oc adm drain <node-name> --ignore-daemonsets --delete-emptydir-data
-
-```
-
 2. **Alert Simulation:** Open the `Alertmanager` UI or use `amtool` to check if any alerts were triggered by your drainage (hint: look for `KubeNodeNotReady` or `KubeNodeUnreachable`).
 3. **Using amtool:** Use the CLI to silence the alert you just triggered for the next 15 minutes:
 ```bash
