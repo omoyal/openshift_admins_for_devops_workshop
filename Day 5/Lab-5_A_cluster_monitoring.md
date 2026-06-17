@@ -48,6 +48,10 @@ By default, OpenShift only monitors core system components. To allow developers 
 1. You need to create or edit a configuration file (ConfigMap) named `cluster-monitoring-config` within the `openshift-monitoring` Namespace.
 2. Here is the file template. **Fill in the missing line** (instead of the `_______`) to enable the feature (use an appropriate boolean value):
 
+```bash
+vim cluster-monitoring-cm.yaml
+```
+
 ```yaml
 apiVersion: v1
 kind: ConfigMap
