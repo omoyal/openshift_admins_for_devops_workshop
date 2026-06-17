@@ -1,4 +1,4 @@
-# Lab 5.2: Infrastructure Maintenance & Disaster Recovery
+# Lab 5.2: Maintance by Alerts & ETCD Backup-encryption
 
 ### Lab Objectives:
 * Perform proactive infrastructure operations: Node Draining and configuration management.
