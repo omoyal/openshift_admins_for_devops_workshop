@@ -144,10 +144,9 @@ oc apply -f stress-app.yaml
 Let's see how the feature we enabled in Part 2 helps developers troubleshoot performance issues on their own, without opening support tickets for the infra team.
 
 1. Return to the OpenShift Web Console and switch the perspective in the top-left corner from **Administrator** to **Developer**.
-2. Ensure that the project you created is selected in the Project dropdown: `day5-apps`.
-3. Navigate to: **Observe** -> **Metrics**.
-4. **Critical Thinking Task:** Switch to the **Dashboard** tab (within the developer's Observe window) and select the **Pod** dashboard.
-5. Look at the **CPU Usage** graph:
+2. Ensure that the project you created is selected in the Project dropdown: `dev-app-project`.
+3. Navigate to: **Observe** -> **Dashboard** and select the **Pod** dashboard
+4. Look at the **CPU Usage** graph:
 * Do you see the Spike in the graph?
 * To what exact value (in cores or millicores) did the pod reach?
 * Why did it stop exactly at that value and not continue to rise? (Hint: Look at the `limits` defined in the YAML file).
