@@ -95,7 +95,8 @@ Ctrl + D X 2
 
 ## Part 3: Cleanup
 
-1. Uncordon the node you drained earlier to allow it to rejoin the scheduling pool:
+Uncordon the node you drained earlier to allow it to rejoin the scheduling pool:  
+
 ```bash
 oc get nodes
 oc adm uncordon <node-name>
