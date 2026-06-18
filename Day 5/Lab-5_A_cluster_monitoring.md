@@ -157,7 +157,3 @@ Let's see how the feature we enabled in Part 2 helps developers troubleshoot per
 * Why did it stop exactly at that value and not continue to rise? (Hint: Look at the `limits` defined in the YAML file).
 
 
-
-```
-
-```
